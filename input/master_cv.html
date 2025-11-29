@@ -17,17 +17,6 @@
             /* Gray-100 */
         }
 
-        /* Force all text to be pure black */
-        .page-container,
-        .page-container * {
-            color: #000 !important;
-        }
-
-        /* Keep link hover colors */
-        .page-container a:hover {
-            color: #2563eb !important;
-        }
-
         .name-header {
             font-family: 'Alegreya', serif;
         }
@@ -35,11 +24,13 @@
         .section-title {
             font-weight: 700;
             text-transform: uppercase;
-            border-bottom: 2px solid #000;
-            padding-bottom: 2px;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid #d1d5db; /* gray-300 */
+            padding-bottom: 4px;
             margin-bottom: 0.75rem;
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
+            margin-top: 1.25rem;
+            font-size: 1rem;
+            color: #111827; /* gray-900 */
         }
 
         /* Print styles to ensure it looks good on paper */
@@ -92,7 +83,7 @@
     </style>
 </head>
 
-<body class="p-4 md:p-8 print:p-0 print:bg-white">
+<body class="p-4 md:p-8 print:p-0 print:bg-white antialiased">
 
     <!-- Download PDF Button -->
     <div class="download-btn fixed top-4 right-4 z-50 print:hidden flex gap-2">
@@ -112,14 +103,14 @@
 
     <!-- CV Container -->
     <div
-        class="page-container max-w-[210mm] mx-auto bg-white shadow-2xl p-8 md:p-12 text-gray-800 leading-relaxed print:shadow-none print:max-w-none print:w-full print:m-0 print:p-0 print:rounded-none">
+        class="page-container max-w-[210mm] mx-auto bg-white shadow-2xl p-8 md:p-12 text-gray-600 leading-relaxed print:shadow-none print:max-w-none print:w-full print:m-0 print:p-0 print:rounded-none">
 
         <!-- Header -->
         <header class="text-center mb-6">
             <h1 class="name-header text-3xl md:text-4xl font-bold text-gray-900 mb-2">Ali Hatem Ramadan</h1>
-            <h2 class="text-xl text-gray-700 italic mb-3">Front-End Developer (Next.js, React.js)</h2>
+            <h2 class="text-lg text-gray-600 italic mb-3 font-normal">Front-End Developer (Next.js, React.js)</h2>
 
-            <div class="flex flex-wrap justify-center gap-3 text-sm text-gray-700 items-center">
+            <div class="flex flex-wrap justify-center gap-3 text-sm text-gray-500 items-center font-normal">
                 <a href="mailto:alihatemramadan5@gmail.com" class="flex items-center gap-1 hover:text-blue-600">
                     <i class="fas fa-envelope"></i> alihatemramadan5@gmail.com
                 </a>
@@ -149,7 +140,7 @@
         <!-- Objectives -->
         <section>
             <h3 class="section-title">OBJECTIVES</h3>
-            <p class="text-sm text-gray-700 text-justify">
+            <p class="text-sm text-gray-600 text-justify font-normal leading-relaxed">
                 Frontend Developer with expertise in React, Next.js, and Redux, passionate about building scalable web
                 applications and
                 enhancing user experience. Experienced in e-commerce and dashboard development, always eager to learn
@@ -164,14 +155,14 @@
 
             <div class="mb-4">
                 <div class="flex justify-between items-baseline flex-wrap">
-                    <h4 class="font-bold text-gray-900">Frontend Developer</h4>
-                    <span class="text-sm font-medium">05/2025 – present</span>
+                    <h4 class="font-semibold text-gray-800">Frontend Developer</h4>
+                    <span class="text-sm text-gray-500 font-normal">05/2025 – present</span>
                 </div>
                 <div class="flex justify-between items-baseline flex-wrap mb-1">
-                    <span class="italic text-gray-700">E3mel business Academy</span>
-                    <span class="text-sm">cairo</span>
+                    <span class="italic text-gray-600 font-medium">E3mel business Academy</span>
+                    <span class="text-sm text-gray-500">cairo</span>
                 </div>
-                <p class="text-sm text-gray-700">
+                <p class="text-sm text-gray-600 font-normal leading-relaxed">
                     Developed and implemented the website’s front-end using Tailwind CSS translating UI/UX
                     designs into fully responsive pages and optimizing performance for a smooth fast user
                     experience across all devices
@@ -180,13 +171,13 @@
 
             <div class="mb-4">
                 <div class="flex justify-between items-baseline flex-wrap">
-                    <h4 class="font-bold text-gray-900">Front-End Developer - freelancing</h4>
-                    <span class="text-sm font-medium">05/2023 – 12/2023</span>
+                    <h4 class="font-semibold text-gray-800">Front-End Developer - freelancing</h4>
+                    <span class="text-sm text-gray-500 font-normal">05/2023 – 12/2023</span>
                 </div>
                 <div class="mb-1">
-                    <span class="italic text-gray-700">Tech Castle</span>
+                    <span class="italic text-gray-600 font-medium">Tech Castle</span>
                 </div>
-                <ul class="list-disc list-inside text-sm text-gray-700">
+                <ul class="list-disc list-inside text-sm text-gray-600 font-normal space-y-1">
                     <li>Developed responsive websites for election candidates in Kuwait, focusing on accessibility and
                         performance optimization. Ex : <a href="https://mohammed-al-huwaila2.vercel.app/"
                             class="text-blue-600 hover:underline">Demo <i class="fas fa-link text-xs"></i></a></li>
@@ -195,16 +186,16 @@
 
             <div class="mb-4">
                 <div class="flex justify-between items-baseline flex-wrap">
-                    <h4 class="font-bold text-gray-900">Frontend Developer | Internship</h4>
-                    <span class="text-sm font-medium">07/2022 – 08/2022</span>
+                    <h4 class="font-semibold text-gray-800">Frontend Developer | Internship</h4>
+                    <span class="text-sm text-gray-500 font-normal">07/2022 – 08/2022</span>
                 </div>
                 <div class="flex justify-between items-baseline flex-wrap mb-1">
                     <a href="https://drive.google.com/file/d/12jo3AZdicjnGO4OUqTGEu-9CnaKxeqIL/view"
-                        class="italic text-gray-700 hover:text-blue-600">Banque Misr <i
+                        class="italic text-gray-600 font-medium hover:text-blue-600">Banque Misr <i
                             class="fas fa-link text-xs"></i></a>
-                    <span class="text-sm">Cairo</span>
+                    <span class="text-sm text-gray-500">Cairo</span>
                 </div>
-                <ul class="list-disc list-inside text-sm text-gray-700">
+                <ul class="list-disc list-inside text-sm text-gray-600 font-normal space-y-1">
                     <li>Developed an e-commerce platform using Angular and improving UI performance</li>
                 </ul>
             </div>
@@ -213,7 +204,7 @@
         <!-- Skills -->
         <section>
             <h3 class="section-title">SKILLS</h3>
-            <p class="text-sm text-gray-700 leading-relaxed">
+            <p class="text-sm text-gray-600 leading-relaxed font-normal">
                 Next JS &bull; ReactJS &bull; typescript &bull; JavaScript &bull; Jestjs &bull; Redux / Redux toolkit
                 &bull; Zustand &bull; Tailwind Css &bull; Shadcn/ui &bull; Material Ui &bull; Html & CSS &bull;
                 Bootstrap &bull; NodeJS &bull; Firebase &bull; MongoDB &bull; Git, GitHub &bull; Framer Motion &bull;
@@ -225,15 +216,15 @@
         <section>
             <h3 class="section-title">EDUCATION</h3>
             <div class="flex justify-between items-baseline flex-wrap">
-                <h4 class="font-bold text-gray-900">Faculty Of Computer and Artificial Intelligence</h4>
-                <span class="text-sm font-medium">09/2019 – 06/2023</span>
+                <h4 class="font-semibold text-gray-800">Faculty Of Computer and Artificial Intelligence</h4>
+                <span class="text-sm text-gray-500 font-normal">09/2019 – 06/2023</span>
             </div>
             <div class="flex justify-between items-baseline flex-wrap mb-1">
-                <span class="italic text-gray-700">Helwan University</span>
-                <span class="text-sm">Cairo</span>
+                <span class="italic text-gray-600 font-medium">Helwan University</span>
+                <span class="text-sm text-gray-500">Cairo</span>
             </div>
-            <p class="text-sm text-gray-700">
-                <span class="font-semibold">Major:</span> Information System / <span class="font-semibold">Grade:</span>
+            <p class="text-sm text-gray-600 font-normal">
+                <span class="font-medium text-gray-700">Major:</span> Information System / <span class="font-medium text-gray-700">Grade:</span>
                 Very Good
             </p>
         </section>
@@ -245,11 +236,11 @@
             <div class="space-y-3">
                 <!-- Project 1 -->
                 <div class="print-atomic">
-                    <h4 class="font-bold text-sm text-gray-900">E3mel Business org</h4>
-                    <p class="text-sm text-gray-700">
+                    <h4 class="font-semibold text-sm text-gray-800">E3mel Business org</h4>
+                    <p class="text-sm text-gray-600 font-normal leading-relaxed">
                         Developed the front-end of E3mel Business website using HTML, CSS, Tailwind CSS, and JavaScript
                         ensuring a fast responsive and user-friendly interface<br>
-                        <span class="font-semibold">Link :</span> <a href="https://www.e3melbusiness.org/"
+                        <span class="font-medium text-gray-700">Link :</span> <a href="https://www.e3melbusiness.org/"
                             class="text-blue-600 hover:underline">https://www.e3melbusiness.org/ <i
                                 class="fas fa-link text-xs"></i></a>
                     </p>
@@ -257,14 +248,14 @@
 
                 <!-- Project 2 -->
                 <div class="print-atomic">
-                    <h4 class="font-bold text-sm text-gray-900">alHawmah Cultural Hub</h4>
-                    <ul class="list-disc list-inside text-sm text-gray-700">
+                    <h4 class="font-semibold text-sm text-gray-800">alHawmah Cultural Hub</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-600 font-normal space-y-1">
                         <li>Implemented A Web Interface For A Cultural Platform That Displays Engaging Visual Content
                             And Reflects A Unique Cultural Identity.</li>
                         <li>I Used Next.js With Tailwind Css</li>
                     </ul>
-                    <p class="text-sm text-gray-700">
-                        <span class="font-semibold">Link :</span> <a href="https://alhawmah.org/"
+                    <p class="text-sm text-gray-600 font-normal">
+                        <span class="font-medium text-gray-700">Link :</span> <a href="https://alhawmah.org/"
                             class="text-blue-600 hover:underline">https://alhawmah.org/ <i
                                 class="fas fa-link text-xs"></i></a>
                     </p>
@@ -272,11 +263,11 @@
 
                 <!-- Project 3 -->
                 <div class="print-atomic">
-                    <h4 class="font-bold text-sm text-gray-900">hadafik altaelimia (freelance)</h4>
-                    <p class="text-sm text-gray-700">
+                    <h4 class="font-semibold text-sm text-gray-800">hadafik altaelimia (freelance)</h4>
+                    <p class="text-sm text-gray-600 font-normal leading-relaxed">
                         Developed an interactive and responsive front-end for an educational platform using HTML, CSS,
                         and JavaScript, with animations implemented to enhance user experience.<br>
-                        <span class="font-semibold">Demo :</span> <a href="https://hadafuk.vercel.app/"
+                        <span class="font-medium text-gray-700">Demo :</span> <a href="https://hadafuk.vercel.app/"
                             class="text-blue-600 hover:underline">https://hadafuk.vercel.app/ <i
                                 class="fas fa-link text-xs"></i></a>
                     </p>
@@ -284,11 +275,11 @@
 
                 <!-- Project 4 -->
                 <div class="print-atomic">
-                    <h4 class="font-bold text-sm text-gray-900">contiva</h4>
-                    <p class="text-sm text-gray-700">
+                    <h4 class="font-semibold text-sm text-gray-800">contiva</h4>
+                    <p class="text-sm text-gray-600 font-normal leading-relaxed">
                         I Designed And Developed An Interactive Educational Website Interface Using React.js Tailwind
                         Css.<br>
-                        <span class="font-semibold">Demo :</span> <a href="https://contiva-learning.vercel.app/"
+                        <span class="font-medium text-gray-700">Demo :</span> <a href="https://contiva-learning.vercel.app/"
                             class="text-blue-600 hover:underline">https://contiva-learning.vercel.app/ <i
                                 class="fas fa-link text-xs"></i></a>
                     </p>
@@ -296,12 +287,11 @@
 
                 <!-- Project 5 -->
                 <div class="print-atomic">
-                    <h4 class="font-bold text-sm text-gray-900">el-zakeroon <a href="#" class="text-blue-600"><i
-                                class="fas fa-link text-xs"></i></a></h4>
-                    <p class="text-sm text-gray-700">
+                    <h4 class="font-semibold text-sm text-gray-800">el-zakeroon</h4>
+                    <p class="text-sm text-gray-600 font-normal leading-relaxed">
                         A web app to help keep track of their digital rosaries.Using : NextJs - Tailwind CSS -
                         TypeScript<br>
-                        <span class="font-semibold">Demo :</span> <a href="https://el-zakeroon.vercel.app/"
+                        <span class="font-medium text-gray-700">Demo :</span> <a href="https://el-zakeroon.vercel.app/"
                             class="text-blue-600 hover:underline">https://el-zakeroon.vercel.app/ <i
                                 class="fas fa-link text-xs"></i></a>
                     </p>
@@ -309,13 +299,13 @@
 
                 <!-- Project 6 -->
                 <div class="print-atomic">
-                    <h4 class="font-bold text-sm text-gray-900">- Academic Creativity Platform (Freelance)</h4>
-                    <ul class="list-disc list-inside text-sm text-gray-700">
+                    <h4 class="font-semibold text-sm text-gray-800">Academic Creativity Platform (Freelance)</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-600 font-normal space-y-1">
                         <li>An educational website that showcases trainers and experts in various fields.</li>
-                        <li><span class="font-semibold">Using</span> NextJS - Tailwind Css</li>
+                        <li><span class="font-medium text-gray-700">Using</span> NextJS - Tailwind Css</li>
                     </ul>
-                    <p class="text-sm text-gray-700">
-                        <span class="font-semibold">Demo :</span> <a href="https://academreativity.vercel.app/"
+                    <p class="text-sm text-gray-600 font-normal">
+                        <span class="font-medium text-gray-700">Demo :</span> <a href="https://academreativity.vercel.app/"
                             class="text-blue-600 hover:underline">https://academreativity.vercel.app/ <i
                                 class="fas fa-link text-xs"></i></a>
                     </p>
@@ -324,26 +314,26 @@
                 <!-- Project 7 -->
                 <div class="print-atomic relative">
                     <div class="flex justify-between items-baseline flex-wrap">
-                        <h4 class="font-bold text-sm text-gray-900">- iMBrother</h4>
-                        <span class="text-xs md:text-sm text-gray-600">02/2023 – 06/2023</span>
+                        <h4 class="font-semibold text-sm text-gray-800">iMBrother</h4>
+                        <span class="text-xs md:text-sm text-gray-500">02/2023 – 06/2023</span>
                     </div>
-                    <ul class="list-disc list-inside text-sm text-gray-700">
+                    <ul class="list-disc list-inside text-sm text-gray-600 font-normal space-y-1">
                         <li>Developed Donation Platform With Admin Dashboard For My Graduation Project</li>
-                        <li><span class="font-semibold">Video</span> <i class="fas fa-link text-xs"></i> | <span
-                                class="font-semibold">Demo</span> <i class="fas fa-link text-xs"></i> | <span
+                        <li><span class="font-medium text-gray-700">Video</span> <i class="fas fa-link text-xs"></i> | <span
+                                class="font-medium text-gray-700">Demo</span> <i class="fas fa-link text-xs"></i> | <span
                                 class="italic text-gray-500">GitHub repo for this project is <span
                                     class="underline">PRIVATE</span></span></li>
-                        <li><span class="font-semibold">Using</span> ReactJS - Redux - Bootstrap - APIs</li>
+                        <li><span class="font-medium text-gray-700">Using</span> ReactJS - Redux - Bootstrap - APIs</li>
                     </ul>
                 </div>
 
                 <!-- Project 8 -->
                 <div class="print-atomic">
-                    <h4 class="font-bold text-sm text-gray-900">- Ecommerce Website Reactjs</h4>
-                    <ul class="list-disc list-inside text-sm text-gray-700">
+                    <h4 class="font-semibold text-sm text-gray-800">Ecommerce Website Reactjs</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-600 font-normal space-y-1">
                         <li>This is an ecommerce website with an Admin Dashboard. <span
-                                class="font-semibold">Using</span> ReactJS - Redux - Bootstrap</li>
-                        <li><span class="font-semibold">Video</span> <i class="fas fa-link text-xs"></i> | <span
+                                class="font-medium text-gray-700">Using</span> ReactJS - Redux - Bootstrap</li>
+                        <li><span class="font-medium text-gray-700">Video</span> <i class="fas fa-link text-xs"></i> | <span
                                 class="italic text-gray-500">GitHub repo for this project is <span
                                     class="underline">PRIVATE</span></span></li>
                     </ul>
@@ -351,11 +341,11 @@
 
                 <!-- Project 9 -->
                 <div class="print-atomic">
-                    <h4 class="font-bold text-sm text-gray-900">- Node.js E-commerce API</h4>
-                    <ul class="list-disc list-inside text-sm text-gray-700">
+                    <h4 class="font-semibold text-sm text-gray-800">Node.js E-commerce API</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-600 font-normal space-y-1">
                         <li>Developed a RESTful E-commerce API using Node.js, Express.js, and MongoDB, featuring JWT
                             authentication, product and order management, and image uploads.</li>
-                        <li><span class="font-semibold">GitHub:</span> <a href="#"
+                        <li><span class="font-medium text-gray-700">GitHub:</span> <a href="#"
                                 class="text-blue-600 hover:underline">github.com/alihatem361/nodejs-ecommerce-api-v1 <i
                                     class="fas fa-link text-xs"></i></a></li>
                     </ul>
@@ -363,10 +353,10 @@
 
                 <!-- Project 10 -->
                 <div class="print-atomic">
-                    <h4 class="font-bold text-sm text-gray-900">stocip-downloader (Freelance)</h4>
-                    <p class="text-sm text-gray-700">
+                    <h4 class="font-semibold text-sm text-gray-800">stocip-downloader (Freelance)</h4>
+                    <p class="text-sm text-gray-600 font-normal leading-relaxed">
                         A Node.js automation tool that uses playwright to download files from Stocip<br>
-                        <span class="font-semibold">Demo</span> Video Link <i class="fas fa-link text-xs"></i>
+                        <span class="font-medium text-gray-700">Demo</span> Video Link <i class="fas fa-link text-xs"></i>
                     </p>
                 </div>
             </div>
@@ -375,25 +365,25 @@
         <!-- Certificates -->
         <section>
             <h3 class="section-title">CERTIFICATES</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-700">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-600 font-normal">
                 <div>
-                    <span class="font-bold text-gray-900">UI/UX (Front-End) Developer track</span> <i
-                        class="fas fa-link text-xs"></i>
-                    <p>Learned UI/UX design, responsive web development.</p>
+                    <span class="font-semibold text-gray-800">UI/UX (Front-End) Developer track</span> <i
+                        class="fas fa-link text-xs text-gray-400"></i>
+                    <p class="text-gray-600">Learned UI/UX design, responsive web development.</p>
                 </div>
                 <div>
-                    <span class="font-bold text-gray-900">Reactjs-Build Full E Commerce-Scratch Redux 2023</span> <i
-                        class="fas fa-link text-xs"></i>
-                    <p>Built a full e-commerce website with React & Redux.</p>
+                    <span class="font-semibold text-gray-800">Reactjs-Build Full E Commerce-Scratch Redux 2023</span> <i
+                        class="fas fa-link text-xs text-gray-400"></i>
+                    <p class="text-gray-600">Built a full e-commerce website with React & Redux.</p>
                 </div>
                 <div>
-                    <span class="font-bold text-gray-900">React Shopping Cart (Node, Express, React, MongoDB)</span> <i
-                        class="fas fa-link text-xs"></i>
-                    <p class="italic">Udemy</p>
+                    <span class="font-semibold text-gray-800">React Shopping Cart (Node, Express, React, MongoDB)</span> <i
+                        class="fas fa-link text-xs text-gray-400"></i>
+                    <p class="italic text-gray-500">Udemy</p>
                 </div>
                 <div>
-                    <span class="font-bold text-gray-900">React JS</span> <i class="fas fa-link text-xs"></i>
-                    <p class="italic">Mahara-Tech</p>
+                    <span class="font-semibold text-gray-800">React JS</span> <i class="fas fa-link text-xs text-gray-400"></i>
+                    <p class="italic text-gray-500">Mahara-Tech</p>
                 </div>
             </div>
         </section>
@@ -402,10 +392,10 @@
         <section>
             <h3 class="section-title">VOLUNTEERING</h3>
             <div class="flex justify-between items-baseline flex-wrap">
-                <h4 class="font-bold text-gray-900 text-sm">Vice Head video production</h4>
-                <span class="text-sm font-medium text-gray-600">11/2021 – 08/2022</span>
+                <h4 class="font-semibold text-gray-800 text-sm">Vice Head video production</h4>
+                <span class="text-sm font-normal text-gray-500">11/2021 – 08/2022</span>
             </div>
-            <div class="text-sm text-gray-700 italic">
+            <div class="text-sm text-gray-600 italic font-normal">
                 Link – FCIH
             </div>
         </section>
@@ -413,9 +403,9 @@
         <!-- Awards -->
         <section>
             <h3 class="section-title">AWARDS</h3>
-            <div class="text-sm text-gray-700">
-                <span class="font-bold text-gray-900">the First Award in Hackathon 1.0 Technology</span> <i
-                    class="fas fa-link text-xs"></i>
+            <div class="text-sm text-gray-600 font-normal">
+                <span class="font-semibold text-gray-800">the First Award in Hackathon 1.0 Technology</span> <i
+                    class="fas fa-link text-xs text-gray-400"></i>
                 <p>My Team And I Have Achieved the First Award in Hackathon 1.0 Technology Award On 1st &amp;2nd Of
                     October
                 </p>
