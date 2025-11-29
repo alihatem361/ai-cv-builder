@@ -1,0 +1,26 @@
+{
+  "name": "ai-cv-generator",
+  "version": "1.0.0",
+  "description": "AI-Powered Custom CV Generator using Google Gemini AI",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [
+    "cv",
+    "resume",
+    "ai",
+    "gemini",
+    "automation",
+    "cover-letter"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "dotenv": "^16.4.5",
+    "puppeteer": "^24.31.0"
+  }
+}

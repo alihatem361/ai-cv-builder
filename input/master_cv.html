@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Hatem Ramadan - CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Alegreya', serif;
+            background-color: #f3f4f6;
+            /* Gray-100 */
+        }
+
+        /* Force all text to be pure black */
+        .page-container,
+        .page-container * {
+            color: #000 !important;
+        }
+
+        /* Keep link hover colors */
+        .page-container a:hover {
+            color: #2563eb !important;
+        }
+
+        .name-header {
+            font-family: 'Alegreya', serif;
+        }
+
+        .section-title {
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 2px solid #000;
+            padding-bottom: 2px;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Print styles to ensure it looks good on paper */
+        @media print {
+            body {
+                background-color: white;
+            }
+
+            .page-container {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+
+            .download-btn {
+                display: none !important;
+            }
+        }
+
+        /* Prevent page breaks inside sections for PDF */
+        section {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .section-title {
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+
+        /* Keep project items together */
+        section>div {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        /* Ensure headers stay with content */
+        h3,
+        h4 {
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+    </style>
+</head>
+
+<body class="p-4 md:p-8 print:p-0 print:bg-white">
+
+    <!-- Download PDF Button -->
+    <div class="download-btn fixed top-4 right-4 z-50 print:hidden flex gap-2">
+        <button id="downloadBtn" onclick="downloadPDF()"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg flex items-center gap-2 transition-all duration-300 hover:scale-105"
+            title="Quick download (image-based PDF)">
+            <i class="fas fa-download"></i>
+            Download PDF
+        </button>
+        <button onclick="window.print()"
+            class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg flex items-center gap-2 transition-all duration-300 hover:scale-105"
+            title="Print/Save as PDF with selectable text">
+            <i class="fas fa-print"></i>
+            Print PDF
+        </button>
+    </div>
+
+    <!-- CV Container -->
+    <div
+        class="page-container max-w-[210mm] mx-auto bg-white shadow-2xl p-8 md:p-12 text-gray-800 leading-relaxed print:shadow-none print:max-w-none print:w-full print:m-0 print:p-0 print:rounded-none">
+
+        <!-- Header -->
+        <header class="text-center mb-6">
+            <h1 class="name-header text-3xl md:text-4xl font-bold text-gray-900 mb-2">Ali Hatem Ramadan</h1>
+            <h2 class="text-xl text-gray-700 italic mb-3">Front-End Developer (Next.js, React.js)</h2>
+
+            <div class="flex flex-wrap justify-center gap-3 text-sm text-gray-700 items-center">
+                <a href="mailto:alihatemramadans@gmail.com" class="flex items-center gap-1 hover:text-blue-600">
+                    <i class="fas fa-envelope"></i> alihatemramadans@gmail.com
+                </a>
+                <span class="hidden md:inline">|</span>
+                <span class="flex items-center gap-1">
+                    <i class="fas fa-map-marker-alt"></i> Egypt | Giza
+                </span>
+                <span class="hidden md:inline">|</span>
+                <a href="tel:+201026159353" class="flex items-center gap-1 hover:text-blue-600">
+                    <i class="fas fa-phone"></i> +20 1026159353
+                </a>
+                <span class="hidden md:inline">|</span>
+                <a href="#" class="flex items-center gap-1 hover:text-blue-600">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <span class="hidden md:inline">|</span>
+                <a href="#" class="flex items-center gap-1 hover:text-blue-600">
+                    <i class="fas fa-link"></i> Portfolio
+                </a>
+                <span class="hidden md:inline">|</span>
+                <a href="#" class="flex items-center gap-1 hover:text-blue-600">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </header>
+
+        <!-- Objectives -->
+        <section>
+            <h3 class="section-title">OBJECTIVES</h3>
+            <p class="text-sm text-gray-700 text-justify">
+                Frontend Developer with expertise in React, Next.js, and Redux, passionate about building scalable web
+                applications and
+                enhancing user experience. Experienced in e-commerce and dashboard development, always eager to learn
+                and contribute
+                to innovative projects
+            </p>
+        </section>
+
+        <!-- Work Experience -->
+        <section>
+            <h3 class="section-title">WORK EXPERIENCE</h3>
+
+            <div class="mb-4">
+                <div class="flex justify-between items-baseline flex-wrap">
+                    <h4 class="font-bold text-gray-900">Frontend Developer</h4>
+                    <span class="text-sm font-medium">03/2025 – present</span>
+                </div>
+                <div class="flex justify-between items-baseline flex-wrap mb-1">
+                    <span class="italic text-gray-700">E3mel business Academy</span>
+                    <span class="text-sm">Cairo</span>
+                </div>
+                <p class="text-sm text-gray-700">
+                    Developed and implemented the website’s front-end using Tailwind CSS translating UI/UX
+                    designs into fully responsive pages and optimizing performance for a smooth fast user
+                    experience across all devices
+                </p>
+            </div>
+
+            <div class="mb-4">
+                <div class="flex justify-between items-baseline flex-wrap">
+                    <h4 class="font-bold text-gray-900">Front-End Developer - freelancing</h4>
+                    <span class="text-sm font-medium">05/2023 – 12/2023</span>
+                </div>
+                <div class="mb-1">
+                    <span class="italic text-gray-700">Tech Castle</span>
+                </div>
+                <ul class="list-disc list-inside text-sm text-gray-700">
+                    <li>Developed responsive websites for election candidates in Kuwait, focusing on accessibility and
+                    performance optimization. Ex : <a href="#" class="text-blue-600 hover:underline">Demo <i
+                                class="fas fa-link text-xs"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="mb-4">
+                <div class="flex justify-between items-baseline flex-wrap">
+                    <h4 class="font-bold text-gray-900">Frontend Developer | Internship</h4>
+                    <span class="text-sm font-medium">07/2023 – 08/2023</span>
+                </div>
+                <div class="flex justify-between items-baseline flex-wrap mb-1">
+                    <span class="italic text-gray-700">Banque Misr <i class="fas fa-link text-xs"></i></span>
+                    <span class="text-sm">Cairo</span>
+                </div>
+                <ul class="list-disc list-inside text-sm text-gray-700">
+                    <li>Developed an e-commerce platform using Angular and improving UI performance</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section>
+            <h3 class="section-title">SKILLS</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">
+                Next JS &bull; ReactJS &bull; typescript &bull; JavaScript &bull; Jestjs &bull; Redux / Redux toolkit
+                &bull; Zustand &bull; Tailwind Css &bull; Shadcn/ui &bull; Material Ui &bull; Html & CSS &bull;
+                Bootstrap &bull; NodeJS &bull; Firebase &bull; MongoDB &bull; Git, GitHub &bull; Framer Motion &bull;
+                React Native
+            </p>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <h3 class="section-title">EDUCATION</h3>
+            <div class="flex justify-between items-baseline flex-wrap">
+                <h4 class="font-bold text-gray-900">Faculty Of Computer and Artificial Intelligence</h4>
+                <span class="text-sm font-medium">09/2019 – 06/2023</span>
+            </div>
+            <div class="flex justify-between items-baseline flex-wrap mb-1">
+                <span class="italic text-gray-700">Helwan University</span>
+                <span class="text-sm">Cairo</span>
+            </div>
+            <p class="text-sm text-gray-700">
+                <span class="font-semibold">Major:</span> Information System / <span class="font-semibold">Grade:</span>
+                Very Good
+            </p>
+        </section>
+
+        <!-- Projects -->
+        <section>
+            <h3 class="section-title">PROJECTS</h3>
+
+            <div class="space-y-3">
+                <!-- Project 1 -->
+                <div>
+                    <h4 class="font-bold text-sm text-gray-900">Ejaad Business org</h4>
+                    <p class="text-sm text-gray-700">
+                        Developed the front-end of Ejaad Business website using HTML, CSS, Tailwind CSS, and JavaScript
+                        ensuring a fast responsive and user-friendly interface<br>
+                        <span class="font-semibold">Link :</span> <a href="https://www.ejaadbusiness.org/"
+                            class="text-blue-600 hover:underline">https://www.ejaadbusiness.org/ <i
+                                class="fas fa-link text-xs"></i></a>
+                    </p>
+                </div>
+
+                <!-- Project 2 -->
+                <div>
+                    <h4 class="font-bold text-sm text-gray-900">alHawmah Cultural Hub</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700">
+                        <li>Implemented A Web Interface For A Cultural Platform That Displays Engaging Visual Content
+                            And Reflects A Unique Cultural Identity.</li>
+                        <li>I Used Next.js With Tailwind Css</li>
+                    </ul>
+                    <p class="text-sm text-gray-700">
+                        <span class="font-semibold">Link :</span> <a href="https://alhawmah.org/"
+                            class="text-blue-600 hover:underline">https://alhawmah.org/ <i
+                                class="fas fa-link text-xs"></i></a>
+                    </p>
+                </div>
+
+                <!-- Project 3 -->
+                <div>
+                    <h4 class="font-bold text-sm text-gray-900">hadafik altaelimia (freelance)</h4>
+                    <p class="text-sm text-gray-700">
+                        Developed an interactive and responsive front-end for an educational platform using HTML, CSS,
+                        and JavaScript, with animations implemented to enhance user experience.<br>
+                        <span class="font-semibold">Demo :</span> <a href="https://hadafik.vercel.app/"
+                            class="text-blue-600 hover:underline">https://hadafik.vercel.app/ <i
+                                class="fas fa-link text-xs"></i></a>
+                    </p>
+                </div>
+
+                <!-- Project 4 -->
+                <div>
+                    <h4 class="font-bold text-sm text-gray-900">contiva</h4>
+                    <p class="text-sm text-gray-700">
+                        I Designed And Developed An Interactive Educational Website Interface Using React.js Tailwind
+                        Css.<br>
+                        <span class="font-semibold">Demo :</span> <a href="https://contiva-learning.vercel.app/"
+                            class="text-blue-600 hover:underline">https://contiva-learning.vercel.app/ <i
+                                class="fas fa-link text-xs"></i></a>
+                    </p>
+                </div>
+
+                <!-- Project 5 -->
+                <div>
+                    <h4 class="font-bold text-sm text-gray-900">el-zakeroon <a href="#" class="text-blue-600"><i
+                                class="fas fa-link text-xs"></i></a></h4>
+                    <p class="text-sm text-gray-700">
+                        A web app to help keep track of their digital rosaries.Using : NextJs - Tailwind CSS -
+                        TypeScript<br>
+                        <span class="font-semibold">Demo :</span> <a href="https://el-zakeroon.vercel.app/"
+                            class="text-blue-600 hover:underline">https://el-zakeroon.vercel.app/ <i
+                                class="fas fa-link text-xs"></i></a>
+                    </p>
+                </div>
+
+                <!-- Project 6 -->
+                <div>
+                    <h4 class="font-bold text-sm text-gray-900">- Academic Creativity Platform (Freelance)</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700">
+                        <li>An educational website that showcases trainers and experts in various fields.</li>
+                        <li><span class="font-semibold">Using</span> NextJS - Tailwind Css</li>
+                    </ul>
+                    <p class="text-sm text-gray-700">
+                        <span class="font-semibold">Demo :</span> <a href="https://academiccreativity.vercel.app/"
+                            class="text-blue-600 hover:underline">https://academiccreativity.vercel.app/ <i
+                                class="fas fa-link text-xs"></i></a>
+                    </p>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="relative">
+                    <div class="flex justify-between items-baseline flex-wrap">
+                        <h4 class="font-bold text-sm text-gray-900">- iMBrother</h4>
+                        <span class="text-xs md:text-sm text-gray-600">02/2023 – 06/2023</span>
+                    </div>
+                    <ul class="list-disc list-inside text-sm text-gray-700">
+                        <li>Developed Donation Platform With Admin Dashboard For My Graduation Project</li>
+                        <li><span class="font-semibold">Video</span> <i class="fas fa-link text-xs"></i> | <span
+                                class="font-semibold">Demo</span> <i class="fas fa-link text-xs"></i> | <span
+                                class="italic text-gray-500">GitHub repo for this project is <span
+                                    class="underline">PRIVATE</span></span></li>
+                        <li><span class="font-semibold">Using</span> ReactJS - Redux - Bootstrap - APIs</li>
+                    </ul>
+                </div>
+
+                <!-- Project 8 -->
+                <div>
+                    <h4 class="font-bold text-sm text-gray-900">- Ecommerce Website Reactjs</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700">
+                        <li>This is an ecommerce website with an Admin Dashboard. <span
+                                class="font-semibold">Using</span> ReactJS - Redux - Bootstrap</li>
+                        <li><span class="font-semibold">Video</span> <i class="fas fa-link text-xs"></i> | <span
+                                class="italic text-gray-500">GitHub repo for this project is <span
+                                    class="underline">PRIVATE</span></span></li>
+                    </ul>
+                </div>
+
+                <!-- Project 9 -->
+                <div>
+                    <h4 class="font-bold text-sm text-gray-900">- Node.js E-commerce API</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700">
+                        <li>Developed a RESTful E-commerce API using Node.js, Express.js, and MongoDB, featuring JWT
+                            authentication, product and order management, and image uploads.</li>
+                        <li><span class="font-semibold">GitHub:</span> <a href="#"
+                                class="text-blue-600 hover:underline">github.com/alihatem161/nodejs-ecommerce-api-v1 <i
+                                    class="fas fa-link text-xs"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- Project 10 -->
+                <div>
+                    <h4 class="font-bold text-sm text-gray-900">stocip-downloader (Freelance)</h4>
+                    <p class="text-sm text-gray-700">
+                        A Node.js automation tool that uses playwright to download files from Stocip<br>
+                        <span class="font-semibold">Demo</span> Video Link <i class="fas fa-link text-xs"></i>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates -->
+        <section>
+            <h3 class="section-title">CERTIFICATES</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-700">
+                <div>
+                    <span class="font-bold text-gray-900">UI/UX (Front-End) Developer track</span> <i
+                        class="fas fa-link text-xs"></i>
+                    <p>Learned UI/UX design, responsive web development.</p>
+                </div>
+                <div>
+                    <span class="font-bold text-gray-900">Reactjs-Build Full E Commerce-Scratch Redux 2023</span> <i
+                        class="fas fa-link text-xs"></i>
+                    <p>Built a full e-commerce website with React & Redux.</p>
+                </div>
+                <div>
+                    <span class="font-bold text-gray-900">React Shopping Cart (Node, Express, React, MongoDB)</span> <i
+                        class="fas fa-link text-xs"></i>
+                    <p class="italic">Udemy</p>
+                </div>
+                <div>
+                    <span class="font-bold text-gray-900">React JS</span> <i class="fas fa-link text-xs"></i>
+                    <p class="italic">Mahara-Tech</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteering -->
+        <section>
+            <h3 class="section-title">VOLUNTEERING</h3>
+            <div class="flex justify-between items-baseline flex-wrap">
+                <h4 class="font-bold text-gray-900 text-sm">Vice Head video production</h4>
+                <span class="text-sm font-medium text-gray-600">11/2021 – 08/2022</span>
+            </div>
+            <div class="text-sm text-gray-700 italic">
+                Link – FC11
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section>
+            <h3 class="section-title">AWARDS</h3>
+            <div class="text-sm text-gray-700">
+                <span class="font-bold text-gray-900">the First Award in Hackathon 1.0 Technology</span> <i
+                    class="fas fa-link text-xs"></i>
+                <p>My Team And I Have Achieved the First Award in Hackathon 1.0 Technology Award On 1st Band Of October
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function downloadPDF() {
+            const btn = document.getElementById('downloadBtn');
+            const btnText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+            btn.disabled = true;
+
+            const element = document.querySelector('.page-container');
+            // Get filename from the HTML file name (e.g., Ali-Hatem-Ramadan-FrontendDeveloper.html -> .pdf)
+            const pathParts = window.location.pathname.replace(/\\/g, '/').split('/');
+            const htmlFilename = pathParts[pathParts.length - 1];
+            const filename = htmlFilename.replace('.html', '.pdf') || 'CV.pdf';
+
+            const opt = {
+                margin: [10, 10, 10, 10],
+                filename: filename,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    letterRendering: true
+                },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
+                enableLinks: true
+            };
+
+            // Use html2pdf with text layer enabled for selectable text
+            html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
+                // This ensures text is rendered as text, not image
+            }).save().then(() => {
+                btn.innerHTML = btnText;
+                btn.disabled = false;
+            });
+        }
+    </script>
+</body>
+
+</html>
