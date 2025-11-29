@@ -66,8 +66,8 @@
             }
         }
 
-        /* Prevent page breaks inside sections for PDF */
-        section {
+        /* Prevent page breaks inside sections for PDF - except large sections */
+        section:not(.allow-break) {
             page-break-inside: avoid;
             break-inside: avoid;
         }
@@ -77,8 +77,8 @@
             break-after: avoid;
         }
 
-        /* Keep project items together */
-        section>div {
+        /* Keep individual project/experience items together */
+        .print-atomic {
             page-break-inside: avoid;
             break-inside: avoid;
         }
@@ -237,12 +237,12 @@
         </section>
 
         <!-- Projects -->
-        <section>
+        <section class="allow-break">
             <h3 class="section-title">PROJECTS</h3>
 
             <div class="space-y-3">
                 <!-- Project 1 -->
-                <div>
+                <div class="print-atomic">
                     <h4 class="font-bold text-sm text-gray-900">E3mel Business org</h4>
                     <p class="text-sm text-gray-700">
                         Developed the front-end of E3mel Business website using HTML, CSS, Tailwind CSS, and JavaScript
@@ -254,7 +254,7 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div>
+                <div class="print-atomic">
                     <h4 class="font-bold text-sm text-gray-900">alHawmah Cultural Hub</h4>
                     <ul class="list-disc list-inside text-sm text-gray-700">
                         <li>Implemented A Web Interface For A Cultural Platform That Displays Engaging Visual Content
@@ -269,7 +269,7 @@
                 </div>
 
                 <!-- Project 3 -->
-                <div>
+                <div class="print-atomic">
                     <h4 class="font-bold text-sm text-gray-900">hadafik altaelimia (freelance)</h4>
                     <p class="text-sm text-gray-700">
                         Developed an interactive and responsive front-end for an educational platform using HTML, CSS,
@@ -281,7 +281,7 @@
                 </div>
 
                 <!-- Project 4 -->
-                <div>
+                <div class="print-atomic">
                     <h4 class="font-bold text-sm text-gray-900">contiva</h4>
                     <p class="text-sm text-gray-700">
                         I Designed And Developed An Interactive Educational Website Interface Using React.js Tailwind
@@ -293,7 +293,7 @@
                 </div>
 
                 <!-- Project 5 -->
-                <div>
+                <div class="print-atomic">
                     <h4 class="font-bold text-sm text-gray-900">el-zakeroon <a href="#" class="text-blue-600"><i
                                 class="fas fa-link text-xs"></i></a></h4>
                     <p class="text-sm text-gray-700">
@@ -306,7 +306,7 @@
                 </div>
 
                 <!-- Project 6 -->
-                <div>
+                <div class="print-atomic">
                     <h4 class="font-bold text-sm text-gray-900">- Academic Creativity Platform (Freelance)</h4>
                     <ul class="list-disc list-inside text-sm text-gray-700">
                         <li>An educational website that showcases trainers and experts in various fields.</li>
@@ -320,7 +320,7 @@
                 </div>
 
                 <!-- Project 7 -->
-                <div class="relative">
+                <div class="print-atomic relative">
                     <div class="flex justify-between items-baseline flex-wrap">
                         <h4 class="font-bold text-sm text-gray-900">- iMBrother</h4>
                         <span class="text-xs md:text-sm text-gray-600">02/2023 – 06/2023</span>
@@ -336,7 +336,7 @@
                 </div>
 
                 <!-- Project 8 -->
-                <div>
+                <div class="print-atomic">
                     <h4 class="font-bold text-sm text-gray-900">- Ecommerce Website Reactjs</h4>
                     <ul class="list-disc list-inside text-sm text-gray-700">
                         <li>This is an ecommerce website with an Admin Dashboard. <span
@@ -348,7 +348,7 @@
                 </div>
 
                 <!-- Project 9 -->
-                <div>
+                <div class="print-atomic">
                     <h4 class="font-bold text-sm text-gray-900">- Node.js E-commerce API</h4>
                     <ul class="list-disc list-inside text-sm text-gray-700">
                         <li>Developed a RESTful E-commerce API using Node.js, Express.js, and MongoDB, featuring JWT
@@ -360,7 +360,7 @@
                 </div>
 
                 <!-- Project 10 -->
-                <div>
+                <div class="print-atomic">
                     <h4 class="font-bold text-sm text-gray-900">stocip-downloader (Freelance)</h4>
                     <p class="text-sm text-gray-700">
                         A Node.js automation tool that uses playwright to download files from Stocip<br>
