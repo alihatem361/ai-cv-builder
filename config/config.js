@@ -23,7 +23,8 @@ export const CONFIG = {
   // AI Generation Settings
   AI_SETTINGS: {
     TEMPERATURE: 0.7,
-    MAX_OUTPUT_TOKENS: 8192,
+    // موديل Pro يدعم عدد توكنز كبير، لذا هذا الرقم مناسب
+    MAX_OUTPUT_TOKENS: 32768,
   },
 };
 

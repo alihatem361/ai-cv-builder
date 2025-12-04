@@ -16,6 +16,7 @@ export function initializeGemini() {
       generationConfig: {
         temperature: CONFIG.AI_SETTINGS.TEMPERATURE,
         maxOutputTokens: CONFIG.AI_SETTINGS.MAX_OUTPUT_TOKENS,
+        responseMimeType: "application/json",
       },
     });
   }
@@ -71,22 +72,96 @@ export function parseAIResponse(response) {
 
   jsonString = jsonString.trim();
 
+  // First attempt: direct parse
   try {
     return JSON.parse(jsonString);
-  } catch (error) {
-    // Try to find JSON object in the response
-    const jsonMatch = response.match(/\{[\s\S]*\}/);
-    if (jsonMatch) {
+  } catch (firstError) {
+    console.log("⚠️ Direct JSON parse failed, trying extraction methods...");
+  }
+
+  // Second attempt: find JSON by looking for opening brace and parse from there
+  const startIndex = response.indexOf("{");
+  if (startIndex !== -1) {
+    // Try parsing from the start brace to the end
+    const possibleJson = response.substring(startIndex).trim();
+    try {
+      return JSON.parse(possibleJson);
+    } catch (e) {
+      // Continue to next method
+    }
+
+    // Third attempt: find the last closing brace and try that range
+    const lastBrace = response.lastIndexOf("}");
+    if (lastBrace > startIndex) {
+      const extractedJson = response.substring(startIndex, lastBrace + 1);
       try {
-        return JSON.parse(jsonMatch[0]);
-      } catch {
+        return JSON.parse(extractedJson);
+      } catch (e) {
+        // Continue to next method
+      }
+    }
+
+    // Fourth attempt: proper brace counting that respects strings
+    let braceCount = 0;
+    let inString = false;
+    let escapeNext = false;
+    let endIndex = -1;
+
+    for (let i = startIndex; i < response.length; i++) {
+      const char = response[i];
+
+      if (escapeNext) {
+        escapeNext = false;
+        continue;
+      }
+
+      if (char === "\\") {
+        escapeNext = true;
+        continue;
+      }
+
+      if (char === '"' && !escapeNext) {
+        inString = !inString;
+        continue;
+      }
+
+      if (!inString) {
+        if (char === "{") braceCount++;
+        else if (char === "}") {
+          braceCount--;
+          if (braceCount === 0) {
+            endIndex = i;
+            break;
+          }
+        }
+      }
+    }
+
+    if (endIndex !== -1) {
+      const extractedJson = response.substring(startIndex, endIndex + 1);
+      try {
+        return JSON.parse(extractedJson);
+      } catch (parseError) {
+        console.error("❌ JSON parsing failed after extraction.");
+        console.error("Parse error:", parseError.message);
+        console.error("First 500 chars:", extractedJson.substring(0, 500));
+        console.error(
+          "Last 500 chars:",
+          extractedJson.substring(extractedJson.length - 500)
+        );
         throw new Error(
           "Failed to parse AI response as JSON. Response may be malformed."
         );
       }
     }
-    throw new Error("No valid JSON found in AI response.");
   }
+
+  // Log the response for debugging when no JSON is found
+  console.error("❌ No JSON object found in response. Response preview:");
+  console.error("Length:", response.length);
+  console.error("First 1000 chars:", response.substring(0, 1000));
+  console.error("Last 1000 chars:", response.substring(response.length - 1000));
+  throw new Error("No valid JSON found in AI response.");
 }
 
 /**

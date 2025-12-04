@@ -1,7 +1,20 @@
- We Are Hiring!
+About the job
+Company Description
 
-بندور عن Mentors تكون Mid-Levelفي المجالات التالية:
+At Imdova, we are more than a digital transformation agency—we are your partners in innovation. By blending strategy, design, and engineering, we create digital experiences that inspire, engage, and deliver measurable results.
 
- • React
 
-لو شايف نفسك مناسب وحابب تكون جزء من رحلتنا، اكتب “Interest” وإحنا هنتواصل معك.
+Role Description
+
+This is a full-time hybrid role for a Frontend Developer specializing in React and Next.js with 4 years of experience. The role is based in Cairo, Egypt, with an option for partial remote work. The developer will be responsible for designing and implementing responsive web interfaces, collaborating with back-end developers to integrate APIs, optimizing application performance, and maintaining software quality through regular testing and debugging. Additionally, the developer will participate in team meetings to contribute ideas for project development and improvement.
+
+
+Qualifications
+
+Proficiency in Front-End Development, including experience with React, Next.js, and Responsive Web Design
+Knowledge and experience in Back-End Web Development and Web Development workflows
+Strong expertise in Software Development, particularly with modern development tools and best practices
+Excellent problem-solving skills and attention to detail
+Ability to work both independently and collaboratively in a hybrid work environment
+Bachelor’s degree in Computer Science, Software Engineering, or related field
+Experience with version control systems like Git is a plus

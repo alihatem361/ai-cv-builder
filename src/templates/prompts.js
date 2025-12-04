@@ -31,24 +31,20 @@ export function getMainPrompt(masterCV, jobDescription) {
    - References specific requirements from the job description
    - Is concise (3-4 paragraphs maximum)
    - Has a professional but personable tone
-   - MUST end with this exact signature block:
+   - MUST end with this exact signature block (NO extra blank lines between contact details):
 
 Sincerely,
 
 Ali Hatem Ramadan
-
 Phone: +201026159353
-
 LinkedIn: https://www.linkedin.com/in/aliihatem-753025203/
-
 Portfolio: https://ali-hatem-portfolio.vercel.app/
-
 GitHub: https://github.com/alihatem361
 
 4. Write an Arabic version of the cover letter that:
    - Has the same content as the English cover letter but translated to Arabic
    - Uses professional Arabic language
-   - MUST end with the same signature block (in English)
+   - MUST end with the same signature block (in English, NO extra blank lines between contact details)
 
 ## MASTER CV (HTML):
 \`\`\`html
