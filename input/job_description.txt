@@ -1,20 +1,13 @@
-About the job
-Company Description
+مطلوب مهندسين برمجيات – حديثو التخرج (الأردن)
 
-At Imdova, we are more than a digital transformation agency—we are your partners in innovation. By blending strategy, design, and engineering, we create digital experiences that inspire, engage, and deliver measurable results.
+يُعلن عن توفر شاغر لمهندسين برمجيات للانضمام إلى فريق تقني متخصص، مع ترحيب خاص بالخريجين الجدد ممن لديهم شغف التطوير والعمل على التقنيات الحديثة.
 
+المتطلبات:
+• بكالوريوس في تكنولوجيا المعلومات أو تخصصات ذات صلة.
+• معرفة بأساسيات البرمجة (C++، HTML5، JavaScript).
+• خبرة 0–3 سنوات.
+• مهارات تعلم ذاتي وقدرة على العمل ضمن فريق.
 
-Role Description
-
-This is a full-time hybrid role for a Frontend Developer specializing in React and Next.js with 4 years of experience. The role is based in Cairo, Egypt, with an option for partial remote work. The developer will be responsible for designing and implementing responsive web interfaces, collaborating with back-end developers to integrate APIs, optimizing application performance, and maintaining software quality through regular testing and debugging. Additionally, the developer will participate in team meetings to contribute ideas for project development and improvement.
-
-
-Qualifications
-
-Proficiency in Front-End Development, including experience with React, Next.js, and Responsive Web Design
-Knowledge and experience in Back-End Web Development and Web Development workflows
-Strong expertise in Software Development, particularly with modern development tools and best practices
-Excellent problem-solving skills and attention to detail
-Ability to work both independently and collaboratively in a hybrid work environment
-Bachelor’s degree in Computer Science, Software Engineering, or related field
-Experience with version control systems like Git is a plus
+📌 التقديم:
+على المهتمين إرسال السيرة الذاتية إلى البريد التالي:
+recruiter_eman@outlook.com
