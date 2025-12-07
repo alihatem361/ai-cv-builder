@@ -4,9 +4,9 @@ import { config } from "dotenv";
 config();
 
 export const CONFIG = {
-  // Gemini API Configuration
-  GEMINI_API_KEY: process.env.GEMINI_API_KEY,
-  GEMINI_MODEL: "gemini-2.0-flash",
+  // OpenAI API Configuration
+  OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+  OPENAI_MODEL: "gpt-4o", // Using GPT-4o
 
   // File Paths
   PATHS: {
@@ -15,26 +15,21 @@ export const CONFIG = {
     OUTPUT_DIR: "./output",
   },
 
-  // Your personal info (used for file naming)
+  // Personal info
   USER: {
-    FULL_NAME: "Ali Hatem Ramadan", // ← اكتب اسمك هنا
+    FULL_NAME: "Ali Hatem Ramadan",
   },
 
-  // AI Generation Settings
+  // AI Settings
   AI_SETTINGS: {
     TEMPERATURE: 0.7,
-    // موديل Pro يدعم عدد توكنز كبير، لذا هذا الرقم مناسب
-    MAX_OUTPUT_TOKENS: 32768,
   },
 };
 
 // Validate required configuration
 export function validateConfig() {
-  if (!CONFIG.GEMINI_API_KEY || CONFIG.GEMINI_API_KEY === "your_api_key_here") {
-    console.error("❌ Error: Please set your GEMINI_API_KEY in the .env file");
-    console.log(
-      "   Get your API key from: https://makersuite.google.com/app/apikey"
-    );
+  if (!CONFIG.OPENAI_API_KEY) {
+    console.error("❌ Error: Please set your OPENAI_API_KEY in the .env file");
     process.exit(1);
   }
   return true;

@@ -5,7 +5,7 @@ import {
   generateFolderName,
   generateCVFileName,
 } from "./src/utils/nameFormatter.js";
-import { generateCustomizedCV } from "./src/ai/gemini.js";
+import { generateCustomizedCV } from "./src/ai/openai.js";
 import { getMainPrompt } from "./src/templates/prompts.js";
 import { generatePDF, generatePDFFileName } from "./src/utils/pdfGenerator.js";
 
