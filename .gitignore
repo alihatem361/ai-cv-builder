@@ -10,7 +10,7 @@ node_modules/
 output/
 
 # Input files (user-specific)
-input/job_description.txt
+/input/job_description.txt
 
 # OS files
 .DS_Store
