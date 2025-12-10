@@ -9,6 +9,9 @@ node_modules/
 # Output folders (generated CVs)
 output/
 
+# Input files (user-specific)
+input/job_description.txt
+
 # OS files
 .DS_Store
 Thumbs.db

@@ -6,7 +6,7 @@ config();
 export const CONFIG = {
   // Gemini API Configuration
   GEMINI_API_KEY: process.env.GEMINI_API_KEY,
-  GEMINI_MODEL: "gemini-2.0-flash",
+  GEMINI_MODEL: "gemini-2.5-flash-lite", // يمكنك تغييره إلى "gemini-2.5-pro" إذا كان لديك وصول
 
   // File Paths
   PATHS: {

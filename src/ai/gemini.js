@@ -36,6 +36,8 @@ export async function generateContent(prompt) {
     const response = await result.response;
     return response.text();
   } catch (error) {
+    console.log("erro", error);
+
     if (error.message?.includes("API_KEY")) {
       throw new Error(
         "Invalid API key. Please check your GEMINI_API_KEY in .env file"
