@@ -12,12 +12,12 @@ export async function generatePDF(htmlFilePath, pdfFilePath, options = {}) {
   const defaultOptions = {
     format: "A4",
     printBackground: true,
-    scale: 0.85, // تصغير الصفحة بنسبة 85% لضغط المحتوى
+    scale: 0.95, // تكبير الخط قليلاً للوضوح
     margin: {
-      top: "10mm",
-      bottom: "10mm",
-      left: "10mm",
-      right: "10mm",
+      top: "8mm",
+      bottom: "8mm",
+      left: "8mm",
+      right: "8mm",
     },
   };
 

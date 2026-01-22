@@ -6,7 +6,15 @@ config();
 export const CONFIG = {
   // Gemini API Configuration
   GEMINI_API_KEY: process.env.GEMINI_API_KEY,
-  GEMINI_MODEL: "gemini-2.5-flash", // يمكنك تغييره إلى "gemini-2.5-pro" إذا كان لديك وصول
+
+  // 🔥 التعديل هنا: قائمة الموديلات بالترتيب بدلاً من موديل واحد
+  // الكود هيجرب الأول، ولو فشل يدخل على الثاني وهكذا
+  GEMINI_MODELS_PRIORITY: [
+    "gemini-2.5-flash-lite", // الخيار الاقتصادي والسريع
+    "gemini-2.5-flash", // الخيار القياسي
+    "gemini-3-flash", // الجيل الجديد
+    "gemini-1.5-flash", // بديل احتياطي قديم
+  ],
 
   // File Paths
   PATHS: {
@@ -15,26 +23,21 @@ export const CONFIG = {
     OUTPUT_DIR: "./output",
   },
 
-  // Your personal info (used for file naming)
+  // Your personal info
   USER: {
-    FULL_NAME: "Ali Hatem Ramadan", // ← اكتب اسمك هنا
+    FULL_NAME: "Ali Hatem Ramadan",
   },
 
   // AI Generation Settings
   AI_SETTINGS: {
     TEMPERATURE: 0.7,
-    // موديل Pro يدعم عدد توكنز كبير، لذا هذا الرقم مناسب
     MAX_OUTPUT_TOKENS: 32768,
   },
 };
 
-// Validate required configuration
 export function validateConfig() {
   if (!CONFIG.GEMINI_API_KEY || CONFIG.GEMINI_API_KEY === "your_api_key_here") {
     console.error("❌ Error: Please set your GEMINI_API_KEY in the .env file");
-    console.log(
-      "   Get your API key from: https://makersuite.google.com/app/apikey"
-    );
     process.exit(1);
   }
   return true;
