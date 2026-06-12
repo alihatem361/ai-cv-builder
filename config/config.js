@@ -34,7 +34,7 @@ export const CONFIG = {
 
   // AI Generation Settings
   AI_SETTINGS: {
-    TEMPERATURE: 0.7,
+    TEMPERATURE: 0.5,
     MAX_OUTPUT_TOKENS: 32768,
   },
 };
