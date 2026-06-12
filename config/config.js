@@ -10,10 +10,14 @@ export const CONFIG = {
   // 🔥 التعديل هنا: قائمة الموديلات بالترتيب بدلاً من موديل واحد
   // الكود هيجرب الأول، ولو فشل يدخل على الثاني وهكذا
   GEMINI_MODELS_PRIORITY: [
-    "gemini-2.5-flash-lite", // الخيار الاقتصادي والسريع
-    "gemini-2.5-flash", // الخيار القياسي
-    "gemini-3-flash", // الجيل الجديد
-    "gemini-1.5-flash", // بديل احتياطي قديم
+    // Prefer stable aliases first (model names change over time)
+    "gemini-2.5-flash-lite",
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-latest",
+    "gemini-2.0-flash",
+    "gemini-1.5-flash-latest",
+    "gemini-1.5-flash",
+    "gemini-pro", // legacy fallback (some keys only have older models)
   ],
 
   // File Paths
