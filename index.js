@@ -28,25 +28,31 @@ async function main() {
 
     const masterCV = await readFile(CONFIG.PATHS.MASTER_CV);
     const jobDescription = await readFile(CONFIG.PATHS.JOB_DESCRIPTION);
-    spinner.succeed(`Loaded master CV (${masterCV.length} chars) and job description (${jobDescription.length} chars)`);
+    spinner.succeed(
+      `Loaded master CV (${masterCV.length} chars) and job description (${jobDescription.length} chars)`,
+    );
 
     // Step 3: Generate customized content using AI
-    spinner = ora("Generating customized content with AI (this might take a minute)...").start();
+    spinner = ora(
+      "Generating customized content with AI (this might take a minute)...",
+    ).start();
     const prompt = getMainPrompt(masterCV, jobDescription);
     const result = await generateCustomizedCV(prompt);
 
-    spinner.succeed(`AI generated CV for ${result.jobPosition} at ${result.companyName}`);
+    spinner.succeed(
+      `AI generated CV for ${result.jobPosition} at ${result.companyName}`,
+    );
 
     // Step 4: Create output folder and save files
     spinner = ora("Saving generated files...").start();
 
     const folderName = generateFolderName(
       result.companyName,
-      result.jobPosition
+      result.jobPosition,
     );
     const cvFileName = generateCVFileName(
       CONFIG.USER.FULL_NAME,
-      result.jobPosition
+      result.jobPosition,
     );
 
     const files = {
@@ -58,7 +64,7 @@ async function main() {
     const outputPath = await saveOutputFiles(
       CONFIG.PATHS.OUTPUT_DIR,
       folderName,
-      files
+      files,
     );
     spinner.succeed(`Saved files to output directory`);
 
@@ -67,7 +73,7 @@ async function main() {
     const htmlFilePath = path.resolve(outputPath, cvFileName);
     const pdfFileName = generatePDFFileName(
       CONFIG.USER.FULL_NAME,
-      result.jobPosition
+      result.jobPosition,
     );
     const pdfFilePath = path.resolve(outputPath, pdfFileName);
 
@@ -87,7 +93,7 @@ async function main() {
     console.log("   2. Copy the cover letter for your application");
     console.log("\n");
   } catch (error) {
-    if (typeof spinner !== 'undefined' && spinner.isSpinning) {
+    if (typeof spinner !== "undefined" && spinner.isSpinning) {
       spinner.fail("An error occurred");
     }
     console.error("\n❌ Error:", error.message);
@@ -96,7 +102,7 @@ async function main() {
       console.log("\n💡 Tip: Make sure you have created the input files:");
       console.log("   - input/master_cv.html (your CV template)");
       console.log(
-        "   - input/job_description.txt (the job you're applying for)"
+        "   - input/job_description.txt (the job you're applying for)",
       );
     }
 

@@ -4,13 +4,35 @@ import { CONFIG } from "../../config/config.js";
 const responseSchema = {
   type: SchemaType.OBJECT,
   properties: {
-    companyName: { type: SchemaType.STRING, description: "The company name extracted from job description" },
-    jobPosition: { type: SchemaType.STRING, description: "The job title/position extracted from job description" },
-    customizedCV: { type: SchemaType.STRING, description: "The complete HTML of the customized CV with preserved Tailwind CSS classes" },
-    coverLetter: { type: SchemaType.STRING, description: "The complete cover letter text in English" },
-    coverLetterArabic: { type: SchemaType.STRING, description: "The complete cover letter text in Arabic" },
+    companyName: {
+      type: SchemaType.STRING,
+      description: "The company name extracted from job description",
+    },
+    jobPosition: {
+      type: SchemaType.STRING,
+      description: "The job title/position extracted from job description",
+    },
+    customizedCV: {
+      type: SchemaType.STRING,
+      description:
+        "The complete HTML of the customized CV with preserved Tailwind CSS classes",
+    },
+    coverLetter: {
+      type: SchemaType.STRING,
+      description: "The complete cover letter text in English",
+    },
+    coverLetterArabic: {
+      type: SchemaType.STRING,
+      description: "The complete cover letter text in Arabic",
+    },
   },
-  required: ["companyName", "jobPosition", "customizedCV", "coverLetter", "coverLetterArabic"],
+  required: [
+    "companyName",
+    "jobPosition",
+    "customizedCV",
+    "coverLetter",
+    "coverLetterArabic",
+  ],
 };
 
 // Initialize the Gemini client
