@@ -24,6 +24,14 @@ export function getMainPrompt(masterCV, jobDescription) {
    - Adjusting experience descriptions to emphasize relevant achievements
    - Adding relevant keywords from the job description naturally
    - KEEP the exact same HTML structure and Tailwind CSS classes - only modify the TEXT content
+   - CRITICAL: DO NOT invent, fabricate, or hallucinate any skills, experiences, or tools. You must only use data explicitly provided in the MASTER CV.
+   - Replace the "Objective" with a 2-line "Professional Summary" emphasizing core frontend expertise (e.g., Next.js, React, TypeScript, Tailwind CSS).
+   - Limit the "Projects" section to a MAXIMUM of 4 relevant projects. Format: Project Name, 1-sentence achievement, and Tech Stack.
+   - Strip ALL URLs from the projects section (keep portfolio/GitHub/LinkedIn ONLY in the main header).
+   - Condense "Certifications" and "Awards" into single comma-separated lines.
+   - Completely remove the "Volunteering" section unless explicitly required by the job description.
+   - Limit the "Experience" section to EXACTLY 3 concise, action-oriented bullet points per role.
+   - CRITICAL UI RULE: You must use compact Tailwind CSS classes (e.g., \`text-sm\`, \`leading-tight\`, \`gap-1\`, \`py-1\`, \`m-0\`) to ensure the entire generated HTML fits perfectly on a single A4 page without looking cluttered.
 
 3. Write a professional cover letter that:
    - Is addressed to the hiring team/manager at the company

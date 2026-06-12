@@ -1,4 +1,5 @@
 import path from "path";
+import ora from "ora";
 import { CONFIG, validateConfig } from "./config/config.js";
 import { readFile, saveOutputFiles } from "./src/utils/fileHandler.js";
 import {
@@ -18,31 +19,26 @@ async function main() {
 
   try {
     // Step 1: Validate configuration
-    console.log("\n📋 Step 1: Validating configuration...");
+    let spinner = ora("Validating configuration...").start();
     validateConfig();
-    console.log("   ✅ Configuration valid");
+    spinner.succeed("Configuration valid");
 
     // Step 2: Read input files
-    console.log("\n📂 Step 2: Reading input files...");
+    spinner = ora("Reading input files...").start();
 
     const masterCV = await readFile(CONFIG.PATHS.MASTER_CV);
-    console.log(`   ✅ Loaded master CV (${masterCV.length} characters)`);
-
     const jobDescription = await readFile(CONFIG.PATHS.JOB_DESCRIPTION);
-    console.log(
-      `   ✅ Loaded job description (${jobDescription.length} characters)`
-    );
+    spinner.succeed(`Loaded master CV (${masterCV.length} chars) and job description (${jobDescription.length} chars)`);
 
     // Step 3: Generate customized content using AI
-    console.log("\n🤖 Step 3: Generating customized content...");
+    spinner = ora("Generating customized content with AI (this might take a minute)...").start();
     const prompt = getMainPrompt(masterCV, jobDescription);
     const result = await generateCustomizedCV(prompt);
 
-    console.log(`   ✅ Company detected: ${result.companyName}`);
-    console.log(`   ✅ Position detected: ${result.jobPosition}`);
+    spinner.succeed(`AI generated CV for ${result.jobPosition} at ${result.companyName}`);
 
     // Step 4: Create output folder and save files
-    console.log("\n💾 Step 4: Saving generated files...");
+    spinner = ora("Saving generated files...").start();
 
     const folderName = generateFolderName(
       result.companyName,
@@ -64,9 +60,10 @@ async function main() {
       folderName,
       files
     );
+    spinner.succeed(`Saved files to output directory`);
 
     // Step 5: Generate PDF from HTML
-    console.log("\n📑 Step 5: Generating PDF (Text-based)...");
+    spinner = ora("Generating PDF...").start();
     const htmlFilePath = path.resolve(outputPath, cvFileName);
     const pdfFileName = generatePDFFileName(
       CONFIG.USER.FULL_NAME,
@@ -75,6 +72,7 @@ async function main() {
     const pdfFilePath = path.resolve(outputPath, pdfFileName);
 
     await generatePDF(htmlFilePath, pdfFilePath);
+    spinner.succeed(`Generated PDF successfully`);
 
     // Success message
     console.log("\n" + "=".repeat(50));
@@ -89,6 +87,9 @@ async function main() {
     console.log("   2. Copy the cover letter for your application");
     console.log("\n");
   } catch (error) {
+    if (typeof spinner !== 'undefined' && spinner.isSpinning) {
+      spinner.fail("An error occurred");
+    }
     console.error("\n❌ Error:", error.message);
 
     if (error.message.includes("File not found")) {

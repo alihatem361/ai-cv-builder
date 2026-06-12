@@ -1,5 +1,17 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import { CONFIG } from "../../config/config.js"; //
+import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
+import { CONFIG } from "../../config/config.js";
+
+const responseSchema = {
+  type: SchemaType.OBJECT,
+  properties: {
+    companyName: { type: SchemaType.STRING, description: "The company name extracted from job description" },
+    jobPosition: { type: SchemaType.STRING, description: "The job title/position extracted from job description" },
+    customizedCV: { type: SchemaType.STRING, description: "The complete HTML of the customized CV with preserved Tailwind CSS classes" },
+    coverLetter: { type: SchemaType.STRING, description: "The complete cover letter text in English" },
+    coverLetterArabic: { type: SchemaType.STRING, description: "The complete cover letter text in Arabic" },
+  },
+  required: ["companyName", "jobPosition", "customizedCV", "coverLetter", "coverLetterArabic"],
+};
 
 // Initialize the Gemini client
 let genAI = null;
@@ -174,6 +186,7 @@ async function generateWithModel({ client, modelName, prompt }) {
     temperature: CONFIG.AI_SETTINGS.TEMPERATURE,
     maxOutputTokens: CONFIG.AI_SETTINGS.MAX_OUTPUT_TOKENS,
     responseMimeType: "application/json",
+    responseSchema: responseSchema,
   };
 
   const runOnce = async (generationConfig) => {
@@ -338,28 +351,10 @@ export async function generateContent(prompt) {
  * Parse JSON response from AI
  */
 export function parseAIResponse(response) {
-  let jsonString = response.trim();
-  if (jsonString.startsWith("```json")) jsonString = jsonString.slice(7);
-  else if (jsonString.startsWith("```")) jsonString = jsonString.slice(3);
-  if (jsonString.endsWith("```")) jsonString = jsonString.slice(0, -3);
-  jsonString = jsonString.trim();
-
   try {
-    return JSON.parse(jsonString);
+    return JSON.parse(response);
   } catch (e) {
-    // ... (باقي كود الـ Parsing المعقد اللي كتبناه قبل كده)
-    // عشان نوفر مساحة، استخدم نفس دالة parseAIResponse القديمة هنا
-    // فهي ممتازة ولا تحتاج تغيير.
-    const startIndex = response.indexOf("{");
-    if (startIndex !== -1) {
-      const lastBrace = response.lastIndexOf("}");
-      if (lastBrace > startIndex) {
-        try {
-          return JSON.parse(response.substring(startIndex, lastBrace + 1));
-        } catch (e) {}
-      }
-    }
-    throw new Error("Failed to parse AI response as JSON.");
+    throw new Error("Failed to parse AI response as JSON: " + e.message);
   }
 }
 

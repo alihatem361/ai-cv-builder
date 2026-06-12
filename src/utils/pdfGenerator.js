@@ -40,7 +40,7 @@ export async function generatePDF(htmlFilePath, pdfFilePath, options = {}) {
     console.log("   📄 Loading HTML file...");
     // Wait for network to be idle (ensures Tailwind CSS is fully loaded)
     await page.goto(fileUrl, {
-      waitUntil: "networkidle0",
+      waitUntil: "networkidle2",
       timeout: 30000,
     });
 
