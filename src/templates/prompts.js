@@ -11,150 +11,49 @@
  */
 export function getMainPrompt(masterCV, jobDescription) {
   return `You are an expert ATS Resume Optimizer and Professional Recruiter.
+Your task is to tailor the candidate's Master CV to perfectly match the provided Job Description.
 
-Your task is to customize the candidate's CV for a specific job description while preserving complete factual accuracy.
+=========================================
+CRITICAL DIRECTIVES
+=========================================
 
-════════════════════════════════════════
-CORE PRINCIPLE — ADAPT, DO NOT INVENT
-════════════════════════════════════════
+1. ZERO HALLUCINATION (STRICT TRUTH):
+   - You MUST NEVER invent, assume, or add skills, tools, metrics, projects, or responsibilities not explicitly present in the Master CV.
+   - DO NOT alter job titles or upgrade seniority (e.g., do not add "Senior").
+   - DO NOT invent years of experience. The candidate graduated in 2023; experience is roughly 3 years. Do not write "5+ years".
 
-Your job is to make the candidate more relevant, not more experienced.
-If evidence does not exist in the source CV, do not write it.
+2. CONDENSE & REFORMAT:
+   - Professional Summary: Write a strict 2-line summary highlighting core frontend expertise matching the job description. No generic objectives.
+   - Experience: Write a single continuous text block (paragraph) of MAXIMUM 2 LINES summarizing the role and achievements. DO NOT use bullet points or lists.
+   - Projects: You MUST keep the Live/Demo URL for each project. Format each strictly as: 
+     BOLD [Project Name] | UNDERLINE & BOLD [Live/Demo URL] 
+     [One single sentence describing the achievement] | BOLD Tech: [Comma-separated stack].
+   - Skills (DOT-SEPARATED LINE): DO NOT categorize skills. Output all relevant skills as a single continuous line separated by bullet points ( • ). Example: Next.js • React • TypeScript • Tailwind CSS • Figma.
+   - Sections to REMOVE: Delete "Volunteering", and "Awards" entirely unless explicitly demanded by the job description.
 
-════════════════════════════════════════
-CRITICAL RULES — NEVER INVENT
-════════════════════════════════════════
+3. HTML & STYLING RULES:
+   - Output MUST be valid HTML.
+   - Preserve ALL original Tailwind CSS classes and HTML structure. Only modify the text content.
+   - Use compact Tailwind classes if necessary to ensure the entire layout fits perfectly on a single A4 page.
 
-You MUST NEVER add, imply, or invent any of the following that are not explicitly present in the source CV:
-
-❌ Years of experience (e.g. "4+ years", "3 years of")
-❌ Seniority levels (e.g. "Senior", "Lead", "Principal", "Staff")
-❌ Skills or technologies not present in the source CV
-❌ Certifications or credentials not listed in the source CV
-❌ Awards or recognition not mentioned in the source CV
-❌ Leadership or team management experience not evidenced in the source CV
-❌ Mentoring or coaching experience not evidenced in the source CV
-❌ Projects not present in the source CV
-❌ Job responsibilities not evidenced in the source CV
-❌ Achievements or metrics not present in the source CV
-
-SENIORITY PROTECTION:
-If the target role is more senior than the candidate's current profile, do NOT upgrade the candidate's seniority level or title.
-Instead, emphasize and highlight the most relevant existing experience from the source CV.
-
-════════════════════════════════════════
-WHAT YOU ARE ALLOWED TO DO
-════════════════════════════════════════
-
-✅ Rewrite the professional summary (maximum 4 lines, based only on existing facts)
-✅ Reorder skills — move the most job-relevant skills to the top (never add new ones)
-✅ Select and reorder projects — keep only the most relevant ones
-✅ Reorder experience sections to lead with the most relevant content
-✅ Emphasize relevant responsibilities that already exist in the source CV
-✅ Rewrite bullet points for clarity, conciseness, and ATS optimization
-✅ Use terminology from the job description when it accurately describes existing experience
-✅ Improve ATS keyword matching using language supported by the source CV
-
-════════════════════════════════════════
-PROJECT SELECTION RULES
-════════════════════════════════════════
-
-Only include the most relevant projects for the target role.
-Maximum: 3 to 4 projects only.
-
-Rank and select projects by:
-1. Technology match with the job description
-2. Responsibility match with the role requirements
-3. Business impact and domain relevance
-
-Remove all lower-relevance projects. The goal is a concise, focused CV optimized for fast application review.
-
-════════════════════════════════════════
-PROFESSIONAL SUMMARY RULES
-════════════════════════════════════════
-
-Write a concise professional summary of maximum 4 lines.
-Base it exclusively on facts present in the source CV.
-Focus on: relevant technologies, relevant industries, relevant responsibilities, relevant achievements.
-Do not mention years of experience unless explicitly stated in the source CV.
-
-════════════════════════════════════════
-SKILLS SECTION RULES
-════════════════════════════════════════
-
-Reorder skills to place the most job-relevant ones first.
-Do not add any skill not present in the source CV.
-Do not remove any skill from the source CV.
-
-════════════════════════════════════════
-EXPERIENCE SECTION RULES
-════════════════════════════════════════
-
-Keep all job titles exactly as they appear in the source CV. Do not upgrade or modify them.
-Keep all company names exactly as they appear in the source CV.
-Keep all dates exactly as they appear in the source CV.
-You may rewrite bullet points for clarity and ATS optimization, but never change the underlying facts.
-
-════════════════════════════════════════
-CV LENGTH TARGET
-════════════════════════════════════════
-
-Less than 5 years of experience: target 1 page.
-More than 3 years of experience: maximum 2 pages.
-Default to the most concise output possible.
-
-════════════════════════════════════════
-COVER LETTER RULES (ENGLISH + ARABIC)
-════════════════════════════════════════
-
-Apply the same factual constraints to cover letters.
-Persuasive, professional language is encouraged.
-However, you MUST NOT invent or imply:
-❌ Skills, technologies, or tools not in the source CV
-❌ Experience, responsibilities, or achievements not in the source CV
-❌ Years of experience unless stated in the source CV
-❌ Certifications, awards, or credentials not in the source CV
-❌ Seniority or leadership not evidenced in the source CV
-
-The cover letter must:
-- Be addressed to the hiring team at the company
-- Highlight why the candidate is a strong match based on real, existing experience
-- Reference specific requirements from the job description
-- Be concise (3–4 paragraphs maximum)
-- Have a professional, confident, and personable tone
-- MUST end with this exact signature block (NO extra blank lines between contact details):
+4. COVER LETTER (ENGLISH & ARABIC):
+   - Keep it concise (3 paragraphs max), persuasive, and strictly factual based on the Master CV.
+   - Address the specific needs of the job description.
+   - The Arabic version must be a professional translation of the English one.
+   - BOTH letters MUST end with this exact signature block (no extra line breaks):
 
 Sincerely,
 
 Ali Hatem Ramadan
 Phone: +201026159353
+watsapp: https://wa.me/201026159353
 LinkedIn: https://www.linkedin.com/in/aliihatem-753025203/
 Portfolio: https://www.alihatem.me
 GitHub: https://github.com/alihatem361
 
-The Arabic cover letter must:
-- Contain the same content as the English cover letter, translated to professional Arabic
-- Apply identical factual constraints (no invention)
-- End with the same signature block in English
-
-════════════════════════════════════════
-FINAL VALIDATION — CHECK BEFORE OUTPUT
-════════════════════════════════════════
-
-Before producing your final response, verify:
-
-1. No invented skills or technologies
-2. No invented work experience or responsibilities
-3. No invented seniority level or title upgrade
-4. No invented years of experience
-5. No invented certifications or credentials
-6. No invented achievements or metrics
-
-If any generated content is not explicitly supported by the source CV — remove it.
-
-════════════════════════════════════════
-INPUTS
-════════════════════════════════════════
+=========================================
+INPUT DATA
+=========================================
 
 ## MASTER CV (HTML):
 \`\`\`html
@@ -166,26 +65,17 @@ ${masterCV}
 ${jobDescription}
 \`\`\`
 
-════════════════════════════════════════
-RESPONSE FORMAT
-════════════════════════════════════════
-
-You MUST respond with a valid JSON object in this exact format:
+=========================================
+OUTPUT FORMAT (JSON ONLY)
+=========================================
+Respond strictly with a valid JSON object matching this structure. Escape all strings properly.
 {
-  "companyName": "The company name extracted from the job description",
-  "jobPosition": "The job title extracted from the job description",
-  "customizedCV": "The complete HTML of the customized CV (preserve ALL original HTML tags and CSS classes — only modify text content)",
-  "coverLetter": "The complete English cover letter text",
-  "coverLetterArabic": "The complete Arabic cover letter text"
-}
-
-CRITICAL OUTPUT RULES:
-- The customizedCV must be valid HTML that preserves ALL original CSS classes and structure
-- Only modify TEXT content — never remove or alter HTML tags or CSS classes
-- The JSON must be valid and parseable
-- Do not include any text outside the JSON object
-- Escape all special characters in strings correctly for valid JSON
-- Both cover letters must include the full signature block`;
+  "companyName": "Extracted from JD",
+  "jobPosition": "Extracted from JD",
+  "customizedCV": "Complete modified HTML string",
+  "coverLetter": "Complete English cover letter text",
+  "coverLetterArabic": "Complete Arabic cover letter text"
+}`;
 }
 
 /**
