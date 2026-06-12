@@ -46,7 +46,7 @@ Sincerely,
 
 Ali Hatem Ramadan
 Phone: +201026159353
-watsapp: https://wa.me/201026159353
+WhatsApp: https://wa.me/201026159353
 LinkedIn: https://www.linkedin.com/in/aliihatem-753025203/
 Portfolio: https://www.alihatem.me
 GitHub: https://github.com/alihatem361
