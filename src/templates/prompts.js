@@ -20,7 +20,7 @@ CRITICAL DIRECTIVES
 1. ZERO HALLUCINATION (STRICT TRUTH):
    - You MUST NEVER invent, assume, or add skills, tools, metrics, projects, or responsibilities not explicitly present in the Master CV.
    - DO NOT alter job titles or upgrade seniority (e.g., do not add "Senior").
-   - DO NOT invent years of experience. The candidate graduated in 2023; experience is roughly 3 years. Do not write "5+ years".
+   - DO NOT invent years of experience. The candidate graduated in 2023; experience is roughly 2 years. Do not write "5+ years".
 
 2. CONDENSE & REFORMAT:
    - Professional Summary: Write a strict 2-line summary highlighting core frontend expertise matching the job description. No generic objectives.
