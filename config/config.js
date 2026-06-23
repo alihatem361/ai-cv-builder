@@ -10,16 +10,30 @@ export const CONFIG = {
   // 🔥 التعديل هنا: قائمة الموديلات بالترتيب بدلاً من موديل واحد
   // الكود هيجرب الأول، ولو فشل يدخل على الثاني وهكذا
   GEMINI_MODELS_PRIORITY: [
-    // Prefer stable aliases first (model names change over time)
-    "gemini-2.5-flash-lite",
-    "gemini-2.5-flash",
-    "gemini-2.5-flash-latest",
-    "gemini-2.0-flash",
-    "gemini-1.5-flash-latest",
-    "gemini-1.5-flash",
-    "gemini-pro", // legacy fallback (some keys only have older models)
-  ],
+    // 2. نماذج الجيل الثالث المتقدمة (Pro & Flash previews)
+    "gemini-3.1-pro-preview", // ❌
+    "gemini-3-pro-preview", // ❌
+    "gemini-3-flash-preview", // 😉
 
+    // 5. روابط الأسماء العامة الثابتة (شاملة الـ Thinking)
+    "gemini-flash-latest", // ❌
+    "gemini-pro-latest", // ❌
+    "gemini-flash-lite-latest", // 🥲
+
+    // 3. نماذج الجيل 2.5 المستقرة والقوية جداً في الصياغة والتحليل
+    "gemini-2.5-pro", // ❌
+    "gemini-2.5-flash", // ❌
+
+    // 4. النماذج الخفيفة والسريعة كحلول بديلة مضمونة (Fallbacks)
+    "gemini-3.1-flash-lite-preview", // ❌
+    "gemini-2.5-flash-lite", // ❌
+    "gemini-2.0-flash", // ❌
+    "gemini-2.0-flash-lite", // ❌
+    "gemini-3.1-flash-lite", // 🥲
+
+    // 1. القمة: أحدث نموذج فلاش مستقر ويدعم التفكير العميق (Thinking: true)
+    "gemini-3.5-flash",
+  ],
   // File Paths
   PATHS: {
     MASTER_CV: "./input/master_cv.html",
