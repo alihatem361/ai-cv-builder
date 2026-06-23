@@ -54,6 +54,11 @@ function isMaxOutputTokensError(error) {
   );
 }
 
+function isServiceUnavailableError(error) {
+  const message = asString(error?.message);
+  return message.includes("503") || message.includes("Service Unavailable");
+}
+
 function normalizeModelName(modelName) {
   return asString(modelName)
     .replace(/^models\//, "")
@@ -238,6 +243,33 @@ export function getGeminiClient() {
 }
 
 /**
+ * Retry a model with exponential backoff for 503 errors
+ */
+async function tryModelWithRetry(client, modelName, prompt, maxRetries = 2) {
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      return await generateWithModel({ client, modelName, prompt });
+    } catch (error) {
+      lastError = error;
+
+      if (isServiceUnavailableError(error) && attempt < maxRetries) {
+        const delayMs = Math.min(1000 * Math.pow(2, attempt - 1), 5000);
+        console.log(
+          `   ⏳ Model ${modelName} temporarily unavailable (503). Retrying in ${delayMs}ms...`
+        );
+        await new Promise((resolve) => setTimeout(resolve, delayMs));
+      } else {
+        throw error;
+      }
+    }
+  }
+
+  throw lastError;
+}
+
+/**
  * Generate content using Gemini AI with Fallback mechanism
  */
 export async function generateContent(prompt) {
@@ -256,18 +288,35 @@ export async function generateContent(prompt) {
       console.log(`   🤖 Trying model: ${modelName}...`);
 
       triedModels.add(modelName);
-      const text = await generateWithModel({ client, modelName, prompt });
+      const text = await tryModelWithRetry(client, modelName, prompt);
 
       if (text) {
         console.log(`   ✅ Success with model: ${modelName}`);
         return text;
       }
     } catch (error) {
+      const errorMsg = error?.message || String(error);
+      let errorType = "Unknown error";
+
+      if (isModelNotFoundError(error)) {
+        errorType = "Model not found (404)";
+      } else if (isInvalidApiKeyError(error)) {
+        errorType = "Invalid/unauthorized API key";
+      } else if (isServiceUnavailableError(error)) {
+        errorType = "Service unavailable (503) - High demand";
+      } else if (isQuotaError(error)) {
+        errorType = "Quota/resource exhausted";
+      } else if (isUnsupportedResponseMimeTypeError(error)) {
+        errorType = "Unsupported response MIME type";
+      } else if (isMaxOutputTokensError(error)) {
+        errorType = "Max output tokens exceeded";
+      }
+
       console.warn(
-        `   ⚠️ Failed with ${modelName}: ${error.message?.slice(0, 100)}...`,
+        `   ⚠️ Failed with ${modelName}: [${errorType}] ${errorMsg}`,
       );
       lastError = error;
-      errors.push({ modelName, error });
+      errors.push({ modelName, error, errorType });
 
       if (isInvalidApiKeyError(error)) {
         throw new Error(
@@ -306,8 +355,25 @@ export async function generateContent(prompt) {
           }
         } catch (e) {
           lastError = e;
+          const errorMsg = e?.message || String(e);
+          let errorType = "Unknown error";
+
+          if (isModelNotFoundError(e)) {
+            errorType = "Model not found (404)";
+          } else if (isInvalidApiKeyError(e)) {
+            errorType = "Invalid/unauthorized API key";
+          } else if (isServiceUnavailableError(e)) {
+            errorType = "Service unavailable (503) - High demand";
+          } else if (isQuotaError(e)) {
+            errorType = "Quota/resource exhausted";
+          } else if (isUnsupportedResponseMimeTypeError(e)) {
+            errorType = "Unsupported response MIME type";
+          } else if (isMaxOutputTokensError(e)) {
+            errorType = "Max output tokens exceeded";
+          }
+
           console.warn(
-            `   ⚠️ Failed with discovered ${discoveredModel}: ${e.message?.slice(0, 100)}...`,
+            `   ⚠️ Failed with discovered ${discoveredModel}: [${errorType}] ${errorMsg}`,
           );
 
           if (isInvalidApiKeyError(e)) {
