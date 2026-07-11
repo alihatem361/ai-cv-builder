@@ -11,10 +11,10 @@ export const CONFIG = {
   // الكود هيجرب الأول، ولو فشل يدخل على الثاني وهكذا
   GEMINI_MODELS_PRIORITY: [
     // Prefer stable aliases first (model names change over time)
-    "gemini-2.5-flash",
-    "gemini-3.5-flash",
-    "gemini-3.1-flash-lite",
-    "gemini-2.5-flash-lite",
+    "gemini-2.5-flash", // ❌
+    "gemini-3.5-flash", // ❌
+    "gemini-3.1-flash-lite", // ❌
+    "gemini-2.5-flash-lite", // ✅
     "gemini-2.5-flash-latest",
     "gemini-2.0-flash",
     "gemini-1.5-flash-latest",
