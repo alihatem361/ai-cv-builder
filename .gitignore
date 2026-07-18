@@ -20,6 +20,8 @@ Thumbs.db
 .vscode/
 .idea/
 
+/MASTERS/PDF
+
 # Logs
 *.log
 npm-debug.log*

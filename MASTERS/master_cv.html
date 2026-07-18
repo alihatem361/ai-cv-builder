@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Hatem Ramadan - CV</title>
+    <title>Ali Hatem Ramadan | Front-End Developer (Next.js, React.js)</title>
+    <meta name="description"
+        content="Ali Hatem Ramadan is a skilled Front-End Developer specializing in Next.js and React.js. Explore his portfolio, work experience, skills, and projects.">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -13,7 +16,8 @@
 
         body {
             font-family: 'Alegreya', serif;
-            background-color: #f3f4f6;
+            background:
+                radial-gradient(circle at top, rgba(255, 255, 255, 0.9), rgba(243, 244, 246, 0.96) 45%, #e5e7eb 100%);
             /* Gray-100 */
         }
 
@@ -39,6 +43,7 @@
         @media print {
             body {
                 background-color: white;
+                line-height: 1.2;
             }
 
             .page-container {
@@ -47,6 +52,57 @@
                 width: 100%;
                 max-width: 100%;
                 padding: 0;
+            }
+
+            .page-container section {
+                margin-bottom: 0.5rem;
+            }
+
+            .page-container header {
+                margin-bottom: 0.5rem;
+            }
+
+            .page-container p,
+            .page-container li {
+                line-height: 1.25;
+            }
+
+            .page-container ul {
+                margin-top: 0.125rem;
+            }
+
+            .page-container .section-title {
+                margin-top: 0.5rem;
+                margin-bottom: 0.35rem;
+                padding-bottom: 0.15rem;
+                font-size: 0.92rem;
+            }
+
+            .page-container .print-atomic {
+                margin-bottom: 0.35rem;
+            }
+
+            .page-container .print-atomic p,
+            .page-container .print-atomic ul,
+            .page-container .print-atomic div {
+                margin-bottom: 0;
+            }
+
+            .page-container .allow-break {
+                break-inside: auto;
+                page-break-inside: auto;
+            }
+
+            .page-container .print-tight {
+                margin-bottom: 0.25rem;
+            }
+
+            .page-container .print-tight .text-sm {
+                font-size: 0.8rem;
+            }
+
+            .page-container a {
+                overflow-wrap: anywhere;
             }
 
             a {
@@ -105,50 +161,61 @@
 
     <!-- CV Container -->
     <div
-        class="page-container max-w-[210mm] mx-auto bg-white shadow-2xl p-8 md:p-12 text-gray-600 leading-relaxed print:shadow-none print:max-w-none print:w-full print:m-0 print:p-0 print:rounded-none">
+        class="page-container max-w-[210mm] mx-auto bg-white/95 border border-gray-200/80 rounded-[28px] shadow-[0_18px_45px_rgba(15,23,42,0.08)] p-8 md:p-12 text-gray-600 leading-relaxed overflow-hidden print:shadow-none print:border-none print:rounded-none print:max-w-none print:w-full print:m-0 print:p-0 print:leading-tight print:text-[0.78rem]">
 
         <!-- Header -->
-        <header class="text-center mb-6">
-            <h1 class="name-header text-3xl md:text-4xl font-bold text-gray-900 mb-2">Ali Hatem Ramadan</h1>
-            <h2 class="text-lg text-gray-600 italic mb-3 font-normal">Front-End Developer (Next.js, React.js)</h2>
+        <header class="text-center mb-6 pb-4  print:mb-1 print:pb-1 print:space-y-0.5">
+            <h1
+                class="name-header text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-2 print:mb-1 print:text-[1.42rem]">
+                Ali Hatem Ramadan</h1>
+            <h2 class="text-lg text-gray-600 italic mb-3 font-normal print:mb-1 print:text-[0.9rem]">Front-End Developer
+                (Next.js, React.js)</h2>
 
-            <div class="flex flex-wrap justify-center gap-3 text-sm text-gray-500 items-center font-normal">
-                <a href="mailto:alihatemramadan5@gmail.com"
-                    class="flex items-center gap-1 hover:text-gray-900 print:text-black">
-                    <i class="fas fa-envelope"></i> alihatemramadan5@gmail.com
-                </a>
-                <span class="hidden md:inline">|</span>
-                <span class="flex items-center gap-1">
-                    <i class="fas fa-map-marker-alt"></i> Egypt | Giza
-                </span>
-                <span class="hidden md:inline">|</span>
-                <a href="https://wa.me/201026159353?text=Hello" target="_blank"
-                    class="flex items-center gap-1 hover:text-gray-900 print:text-black">
-                    <i class="fab fa-whatsapp"></i> +20 1026159353
-                </a>
-                <span class="hidden md:inline">|</span>
-                <a href="https://www.linkedin.com/in/aliihatem-753025203/" target="_blank"
-                    class="flex items-center gap-1 hover:text-gray-900 print:text-black">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <span class="hidden md:inline">|</span>
-                <a href="https://www.alihatem.me" target="_blank"
-                    class="flex items-center gap-1 hover:text-gray-900 print:text-black">
-                    <i class="fas fa-link"></i> Portfolio
-                </a>
-                <span class="hidden md:inline">|</span>
-                <a href="https://github.com/alihatem361" target="_blank"
-                    class="flex items-center gap-1 hover:text-gray-900 print:text-black">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+            <div
+                class="flex flex-wrap justify-center gap-3 text-sm text-gray-500 items-center font-normal print:flex-col print:gap-1 print:text-[0.7rem] print:leading-tight">
+                <div
+                    class="flex flex-wrap justify-center items-center gap-3 print:gap-x-1.5 print:gap-y-0 print:justify-center">
+                    <a href="mailto:alihatemramadan5@gmail.com"
+                        class="flex items-center gap-1 hover:text-gray-900 print:text-black print:break-words">
+                        <i class="fas fa-envelope"></i> alihatemramadan5@gmail.com
+                    </a>
+                    <span class="hidden md:inline">|</span>
+                    <span class="flex items-center gap-1">
+                        <i class="fas fa-map-marker-alt"></i> Egypt | Giza
+                    </span>
+                    <span class="hidden md:inline">|</span>
+                    <a href="https://wa.me/201026159353?text=Hello" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center gap-1 hover:text-gray-900 print:text-black print:break-words">
+                        <i class="fab fa-whatsapp"></i> +20 1026159353
+                    </a>
+                </div>
+                <div
+                    class="flex flex-nowrap justify-center items-center gap-3 whitespace-nowrap print:gap-2 print:w-full print:justify-center">
+                    <a href="https://www.linkedin.com/in/aliihatem-753025203/" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center gap-1 underline decoration-gray-400 underline-offset-2 hover:text-gray-900 print:text-black print:decoration-gray-500 print:break-keep print:font-medium print:text-[0.66rem] print:leading-none print:[text-underline-offset:1px] print:[text-decoration-thickness:1px]">
+                        <i class="fab fa-linkedin print:hidden"></i> https://www.linkedin.com/in/aliihatem-753025203/
+                    </a>
+                    <span class="print:inline hidden">|</span>
+                    <a href="https://www.alihatem.me" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center gap-1 underline decoration-gray-400 underline-offset-2 hover:text-gray-900 print:text-black print:decoration-gray-500 print:break-keep print:font-medium print:text-[0.66rem] print:leading-none print:[text-underline-offset:1px] print:[text-decoration-thickness:1px]">
+                        <i class="fas fa-link print:hidden"></i> https://www.alihatem.me
+                    </a>
+                    <span class="print:inline hidden">|</span>
+                    <a href="https://github.com/alihatem361" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center gap-1 underline decoration-gray-400 underline-offset-2 hover:text-gray-900 print:text-black print:decoration-gray-500 print:break-keep print:font-medium print:text-[0.66rem] print:leading-none print:[text-underline-offset:1px] print:[text-decoration-thickness:1px]">
+                        <i class="fab fa-github print:hidden"></i> https://github.com/alihatem361
+                    </a>
+                </div>
             </div>
         </header>
 
         <!-- Work Experience -->
-        <section>
-            <h3 class="section-title">WORK EXPERIENCE</h3>
+        <section class="print-tight break-inside-avoid print:[break-inside:avoid] print:mb-1">
+            <h3
+                class="section-title pl-3 border-l-4 border-gray-800 print:pl-0 print:border-l-0 print:mt-1.5 print:mb-1.5 print:pb-1 print:text-[0.9rem]">
+                WORK EXPERIENCE</h3>
 
-            <div class="mb-4">
+            <div class="mb-4 break-inside-avoid print:mb-1 print:[break-inside:avoid]">
                 <div class="flex justify-between items-baseline flex-wrap">
                     <h4 class="font-semibold text-gray-800">Frontend Developer</h4>
                     <span class="text-sm text-gray-500 font-normal">05/2025 – present</span>
@@ -157,23 +224,17 @@
                     <span class="italic text-gray-600 font-medium">E3mel business Academy</span>
                     <span class="text-sm text-gray-500">cairo</span>
                 </div>
-                <!-- bollet description  -->
-                <p class="text-sm text-gray-600 font-normal leading-relaxed">
-                    <!-- Developed React based web and mobile applications using TypeScript Redux Toolkit and REST APIs
-                        Built responsive user interfaces from Figma designs using HTML Tailwind CSS and JavaScript
-                        Integrated REST APIs and managed application state using React Query Redux Toolkit and Zustand
-                        Collaborated with designers and backend developers to deliver scalable production ready features -->
-                <ul class="list-disc list-inside space-y-1">
+                <ul
+                    class="list-disc list-inside space-y-1 print:space-y-0.5 text-sm text-gray-600 font-normal leading-relaxed print:leading-tight">
                     <li>Built production React and Nextjs applications using TypeScript Redux Toolkit and REST APIs.
                     </li>
                     <li>Developed responsive interfaces from Figma with Tailwind CSS and reusable components.</li>
                     <li>Integrated APIs and collaborated with designers and backend engineers to deliver scalable
                         features.</li>
                 </ul>
-                </p>
             </div>
 
-            <div class="mb-4">
+            <div class="mb-4 break-inside-avoid print:mb-1 print:[break-inside:avoid]">
                 <div class="flex justify-between items-baseline flex-wrap">
                     <h4 class="font-semibold text-gray-800">Front-End Developer</h4>
                     <span class="text-sm text-gray-500 font-normal">05/2023 – 12/2023</span>
@@ -181,7 +242,8 @@
                 <div class="mb-1">
                     <span class="italic text-gray-600 font-medium">Tech Castle</span>
                 </div>
-                <ul class="list-disc list-inside text-sm text-gray-600 font-normal space-y-1">
+                <ul
+                    class="list-disc list-inside text-sm text-gray-600 font-normal space-y-1 print:space-y-0.5 print:leading-tight">
                     <li>Developed responsive campaign websites for election candidates using ReactJS and
                         Bootstrap translating Figma
                         designs into production ready user interfaces. Ex : <a
@@ -191,7 +253,7 @@
                 </ul>
             </div>
 
-            <div class="mb-4">
+            <div class="mb-4 break-inside-avoid print:mb-1 print:[break-inside:avoid]">
                 <div class="flex justify-between items-baseline flex-wrap">
                     <h4 class="font-semibold text-gray-800">Frontend Developer | Internship</h4>
                     <span class="text-sm text-gray-500 font-normal">07/2022 – 08/2022</span>
@@ -202,7 +264,8 @@
                         Misr <i class="fas fa-link text-xs"></i></a>
                     <span class="text-sm text-gray-500">Cairo</span>
                 </div>
-                <ul class="list-disc list-inside text-sm text-gray-600 font-normal space-y-1">
+                <ul
+                    class="list-disc list-inside text-sm text-gray-600 font-normal space-y-1 print:space-y-0.5 print:leading-tight">
                     <li>Developed an e commerce application using Angular improving UI responsiveness and user
                         experience</li>
                 </ul>
@@ -210,84 +273,69 @@
         </section>
 
         <!-- Skills -->
-        <section>
-            <h3 class="section-title">SKILLS</h3>
+        <section class="print-tight break-inside-avoid print:[break-inside:avoid] print:mb-1">
+            <h3
+                class="section-title pl-3 border-l-4 border-gray-800 print:pl-0 print:border-l-0 print:mt-1.5 print:mb-1.5 print:pb-1 print:text-[0.9rem]">
+                SKILLS</h3>
 
-            <div class="text-sm text-gray-600 space-y-1">
+            <div class="text-sm text-gray-600 space-y-1 print:space-y-0.5 print:text-[0.78rem] print:leading-tight">
+
+                <!-- Core: React • Next.js • TypeScript • JavaScript • HTML • CSS • Tailwind CSS • Material UI • Bootstrap • shadcn/ui
+            
+            Other: Redux Toolkit • React Query • Zustand • React Hook Form • React Native • Ionic React • Capacitor • Git • GitHub •
+            Sanity CMS • Jest • Vitest • React Testing Library -->
 
                 <p>
-                    <strong>Frontend:</strong>
-                    React
-                    • Next.js
-                    • TypeScript
-                    • JavaScript
-                    • HTML5
-                    • CSS3
-                    • Tailwind CSS
-                    • Bootstrap
-                    • Material UI
+                    <strong>Core:</strong> React • Next.js • TypeScript • JavaScript • HTML • CSS • Tailwind CSS •
+                    Material UI • Bootstrap
                     • shadcn/ui
                 </p>
-
                 <p>
-                    <strong>State Management:</strong>
-                    Redux Toolkit
-                    • Zustand
-                    • React Query
-                    • React Hook Form
-                </p>
-
-                <p>
-                    <strong>Mobile:</strong>
-                    React Native
-                    • Ionic React
-                    • Capacitor
-                </p>
-
-                <p>
-                    <strong>Tools & Testing:</strong>
-                    Git
-                    • GitHub
-                    • Sanity CMS
-                    • Jest • React Testing Library • Vitest
+                    <strong>Other:</strong> Redux Toolkit • React Query • Zustand • React Hook Form • React Native •
+                    Ionic React • Capacitor • Git • GitHub • Sanity CMS • Jest • Vitest • React Testing Library
                 </p>
 
             </div>
         </section>
 
         <!-- Education -->
-        <section>
-            <h3 class="section-title">EDUCATION</h3>
+        <section class="print-tight break-inside-avoid print:[break-inside:avoid] print:mb-1">
+            <h3
+                class="section-title pl-3 border-l-4 border-gray-800 print:pl-0 print:border-l-0 print:mt-1.5 print:mb-1.5 print:pb-1 print:text-[0.9rem]">
+                EDUCATION</h3>
             <div class="flex justify-between items-baseline flex-wrap">
-                <h4 class="font-semibold text-gray-800">Faculty Of Computer and Artificial Intelligence</h4>
+                <h4 class="font-semibold text-gray-800">Faculty Of Computer and Artificial Intelligence | Helwan
+                    University</h4>
                 <span class="text-sm text-gray-500 font-normal">09/2019 – 06/2023</span>
             </div>
             <div class="flex justify-between items-baseline flex-wrap mb-1">
-                <span class="italic text-gray-600 font-medium">Helwan University</span>
-                <span class="text-sm text-gray-500">Cairo</span>
+                <!-- <span class="italic text-gray-600 font-medium">Helwan University</span> -->
+                <!-- <span class="text-sm text-gray-500">Cairo</span> -->
             </div>
             <p class="text-sm text-gray-600 font-normal">
                 <span class="font-medium text-gray-700">Major:</span> Information System & Computer Science / <span
                     class="font-medium text-gray-700">Grade:</span>
-                Very Good
+                <strong class="text-gray-800">Very Good</strong>
             </p>
         </section>
 
         <!-- PROJECTS -->
-        <section class="allow-break">
-            <h3 class="section-title">PROJECTS</h3>
+        <section class="allow-break print-tight print:mb-1">
+            <h3
+                class="section-title pl-3 border-l-4 border-gray-800 print:pl-0 print:border-l-0 print:mt-1.5 print:mb-1.5 print:pb-1 print:text-[0.9rem]">
+                PROJECTS</h3>
 
-            <div class="space-y-3">
+            <div class="space-y-3 print:space-y-1">
 
                 <!-- Cruisara -->
-                <div class="print-atomic">
-                    <p class="text-sm text-gray-600 leading-relaxed">
+                <div class="print-atomic break-inside-avoid print:mb-0.5 print:[break-inside:avoid]">
+                    <p class="text-sm text-gray-600 leading-relaxed print:leading-tight">
                         <strong class="text-gray-800">Cruisara Tours</strong> |
-                        <a href="https://cruisara.com/" target="_blank"
-                            class="underline decoration-gray-400 underline-offset-2">Demo</a><br>
-                        Built a multilingual tourism booking platform with AI translation CMS integration PayPal
-                        payments and
-                        automated email workflows
+                        <a href="https://cruisara.com/" target="_blank" rel="noopener noreferrer"
+                            class="underline decoration-gray-400 underline-offset-2">https://cruisara.com/</a><br>
+                        Built the frontend of a multilingual tourism booking platform and admin dashboard with online
+                        reservations CMS
+                        integration AI powered translations PayPal payments and automated email workflows
                         <br>
                         <span class="font-medium">Next.js • React • Tailwind CSS • Zustand • Sanity CMS • PayPal API •
                             Gemini
@@ -296,11 +344,11 @@
                 </div>
 
                 <!-- Masaakin -->
-                <div class="print-atomic">
-                    <p class="text-sm text-gray-600 leading-relaxed">
+                <div class="print-atomic break-inside-avoid print:mb-0.5 print:[break-inside:avoid]">
+                    <p class="text-sm text-gray-600 leading-relaxed print:leading-tight">
                         <strong class="text-gray-800">Masaakin Al-Mawil</strong> |
-                        <a href="https://real-estate-app-1ic.pages.dev/home" target="_blank"
-                            class="underline decoration-gray-400 underline-offset-2">Demo</a><br>
+                        <a href="https://real-estate-app-1ic.pages.dev/home" target="_blank" rel="noopener noreferrer"
+                            class="underline decoration-gray-400 underline-offset-2">https://real-estate-app-1ic.pages.dev/home</a><br>
                         Developed a real estate mobile application with authentication payments maintenance requests
                         notifications and REST API integration
                         <br>
@@ -308,11 +356,70 @@
                     </p>
                 </div>
 
-                <div class="print-atomic">
-                    <p class="text-sm text-gray-600 leading-relaxed">
+
+
+
+                <!-- E3mel Business -->
+                <div class="print-atomic break-inside-avoid print:mb-0.5 print:[break-inside:avoid]">
+                    <p class="text-sm text-gray-600 leading-relaxed print:leading-tight">
+                        <strong class="text-gray-800">E3mel Business</strong> |
+                        <a href="https://www.e3melbusiness.org/" target="_blank" rel="noopener noreferrer"
+                            class="underline decoration-gray-400 underline-offset-2">https://www.e3melbusiness.org/</a><br>
+                        Built the complete frontend of a corporate training platform from Figma designs implementing
+                        responsive layouts reusable UI components and optimized user experience
+                        <br>
+                        <span class="font-medium">HTML • Tailwind CSS • JavaScript</span>
+                    </p>
+                </div>
+
+                <!-- GenZ -->
+                <!-- <div class="print-atomic break-inside-avoid print:mb-0.5 print:[break-inside:avoid]">
+                    <p class="text-sm text-gray-600 leading-relaxed print:leading-tight">
+                        <strong class="text-gray-800">GenZ School</strong> |
+                        <a href="https://genzschool.net/" target="_blank" rel="noopener noreferrer"
+                            class="underline decoration-gray-400 underline-offset-2">https://genzschool.net/</a><br>
+                        Built a multilingual educational platform with geolocation pricing CMS integration and optimized
+                        Core
+                        Web Vitals
+                        <br>
+                        <span class="font-medium">Next.js • TypeScript • Tailwind CSS • Sanity CMS</span>
+                    </p>
+                </div> -->
+
+                <!-- Novira -->
+                <div class="print-atomic break-inside-avoid print:mb-0.5 print:[break-inside:avoid]">
+                    <p class="text-sm text-gray-600 leading-relaxed print:leading-tight">
+                        <strong class="text-gray-800">Novira Health</strong> |
+                        <a href="https://www.novirahealth.com/" target="_blank" rel="noopener noreferrer"
+                            class="underline decoration-gray-400 underline-offset-2">https://www.novirahealth.com/</a><br>
+                        Developed a healthcare website with React TypeScript Sanity CMS Framer Motion and SEO
+                        optimization
+                        <br>
+                        <span class="font-medium">React • TypeScript • Vite • Sanity CMS • Framer Motion</span>
+                    </p>
+                </div>
+
+                <!-- Al Hawmah Cultural Hub -->
+                <div class="print-atomic break-inside-avoid print:mb-0.5 print:[break-inside:avoid]">
+                    <p class="text-sm text-gray-600 leading-relaxed print:leading-tight">
+                        <strong class="text-gray-800">Al Hawmah Cultural Hub</strong> |
+                        <a href="https://alhawmah.org/" target="_blank" rel="noopener noreferrer"
+                            class="underline decoration-gray-400 underline-offset-2">https://alhawmah.org/</a><br>
+                        Built the complete frontend of a multilingual cultural platform from Figma designs before
+                        backend integration
+                        implementing responsive layouts reusable components and modern UI architecture
+                        <br>
+                        <span class="font-medium">React • TypeScript • Tailwind CSS • shadcn/ui</span>
+                    </p>
+                </div>
+
+
+                <div class="print-atomic break-inside-avoid print:mb-0.5 print:[break-inside:avoid]">
+                    <p class="text-sm text-gray-600 leading-relaxed print:leading-tight">
                         <strong class="text-gray-800">Masaakin Al Mawil Dashboard</strong> |
                         <a href="https://masaakin-al-mawil-dashboard.vercel.app" target="_blank"
-                            class="underline decoration-gray-400 underline-offset-2">Demo</a><br>
+                            rel="noopener noreferrer"
+                            class="underline decoration-gray-400 underline-offset-2">https://masaakin-al-mawil-dashboard.vercel.app</a><br>
                         Developed an RTL property management dashboard with authentication role based access maintenance
                         financial
                         modules and reusable admin components
@@ -323,79 +430,27 @@
                     </p>
                 </div>
 
+                <!-- Roya Training Packages -->
 
-                <!-- E3mel Business -->
-                <div class="print-atomic">
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        <strong class="text-gray-800">E3mel Business</strong> |
-                        <a href="https://www.e3melbusiness.org/" target="_blank"
-                            class="underline decoration-gray-400 underline-offset-2">Demo</a><br>
-                        Built the complete frontend of a corporate training platform from Figma designs implementing
-                        responsive layouts reusable UI components and optimized user experience
-                        <br>
-                        <span class="font-medium">HTML • Tailwind CSS • JavaScript</span>
-                    </p>
-                </div>
-
-                <!-- GenZ -->
-                <div class="print-atomic">
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        <strong class="text-gray-800">GenZ School</strong> |
-                        <a href="https://genzschool.net/" target="_blank"
-                            class="underline decoration-gray-400 underline-offset-2">Demo</a><br>
-                        Built a multilingual educational platform with geolocation pricing CMS integration and optimized
-                        Core
-                        Web Vitals
-                        <br>
-                        <span class="font-medium">Next.js • TypeScript • Tailwind CSS • Sanity CMS</span>
-                    </p>
-                </div>
-
-                <!-- Novira -->
-                <div class="print-atomic">
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        <strong class="text-gray-800">Novira Health</strong> |
-                        <a href="https://www.novirahealth.com/" target="_blank"
-                            class="underline decoration-gray-400 underline-offset-2">Demo</a><br>
-                        Developed a healthcare website with React TypeScript Sanity CMS Framer Motion and SEO
-                        optimization
-                        <br>
-                        <span class="font-medium">React • TypeScript • Vite • Sanity CMS • Framer Motion</span>
-                    </p>
-                </div>
-
-                <!-- Al Hawmah Cultural Hub -->
-                <div class="print-atomic">
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        <strong class="text-gray-800">Al Hawmah Cultural Hub</strong> |
-                        <a href="https://alhawmah.org/" target="_blank"
-                            class="underline decoration-gray-400 underline-offset-2">Demo</a><br>
-                        Built the complete frontend of a multilingual cultural platform from Figma designs before
-                        backend integration
-                        implementing responsive layouts reusable components and modern UI architecture
-                        <br>
-                        <span class="font-medium">React • TypeScript • Tailwind CSS • shadcn/ui</span>
-                    </p>
-                </div>
-                <!-- 
-                <div class="print-atomic">
-                    <p class="text-sm text-gray-600 leading-relaxed">
+                <div class="print-atomic break-inside-avoid print:mb-0.5 print:[break-inside:avoid]">
+                    <p class="text-sm text-gray-600 leading-relaxed print:leading-tight">
                         <strong class="text-gray-800">Roya Training Packages</strong> |
-                        <a href="https://beta.roaya-tp.com/" target="_blank"
-                            class="underline decoration-gray-400 underline-offset-2">Demo</a><br>
+                        <a href="https://roaya-tp.com/" target="_blank" rel="noopener noreferrer"
+                            class="underline decoration-gray-400 underline-offset-2">https://roaya-tp.com</a><br>
                         Developed a responsive RTL corporate website for training services implementing reusable UI
                         components and
                         multiple business pages from Figma designs
                         <br>
                         <span class="font-medium">HTML • Bootstrap • JavaScript • jQuery</span>
                     </p>
-                </div> -->
+                </div>
 
                 <!-- Educational Platform -->
                 <div class="print-atomic">
                     <p class="text-sm text-gray-600 leading-relaxed">
                         <strong class="text-gray-800">Educational Platform</strong>
                         | <a href="https://www.alihatem.me/collection/teachers-collection" target="_blank"
+                            rel="noopener noreferrer"
                             class="underline decoration-gray-400 underline-offset-2">Demo</a><br>
                         Developed bilingual web pages and reusable UI components from Figma designs using React HTML
                         Tailwind CSS and
@@ -435,10 +490,14 @@
         </section>
 
         <!-- Certificates -->
-        <section>
-            <h3 class="section-title">CERTIFICATES</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-600 font-normal">
-                <div>
+        <section class="print-tight break-inside-avoid print:[break-inside:avoid] print:mb-1">
+            <h3
+                class="section-title pl-3 border-l-4 border-gray-800 print:pl-0 print:border-l-0 print:mt-1.5 print:mb-1.5 print:pb-1 print:text-[0.9rem]">
+                COURSES & CERTIFICATES
+            </h3>
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-600 font-normal print:grid-cols-1 print:gap-y-0.5 print:text-[0.78rem] print:leading-tight">
+                <div class="break-inside-avoid print:[break-inside:avoid]">
                     <a href="https://drive.google.com/file/d/1GCiH7YBRJcaimm5XjqhwUVflVyam05SF/view" target="_blank"
                         rel="noopener noreferrer"
                         class="font-semibold text-gray-800 underline decoration-gray-400 underline-offset-2 hover:text-black print:text-black print:decoration-gray-500">
@@ -451,7 +510,7 @@
                     </p>
                 </div>
 
-                <div>
+                <div class="break-inside-avoid print:[break-inside:avoid]">
                     <a href="https://www.udemy.com/certificate/UC-51073ac6-275f-453c-9e3d-78331e099975/" target="_blank"
                         rel="noopener noreferrer"
                         class="font-semibold text-gray-800 underline decoration-gray-400 underline-offset-2 hover:text-black print:text-black print:decoration-gray-500">
