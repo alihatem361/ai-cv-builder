@@ -20,6 +20,7 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Personal files
 MASTERS/
 
 CLAUDE.md
@@ -27,3 +28,6 @@ CLAUDE.md
 # Logs
 *.log
 npm-debug.log*
+
+# Other files
+applications_tracker.csv
