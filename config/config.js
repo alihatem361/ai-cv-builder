@@ -10,10 +10,17 @@ export const CONFIG = {
   // 🔥 التعديل هنا: قائمة الموديلات بالترتيب بدلاً من موديل واحد
   // الكود هيجرب الأول، ولو فشل يدخل على الثاني وهكذا
   GEMINI_MODELS_PRIORITY: [
-    // 2. نماذج الجيل الثالث المتقدمة (Pro & Flash previews)
-    "gemini-3.1-pro-preview", // ❌
-    "gemini-3-pro-preview", // ❌
-    "gemini-3-flash-preview", // 😉
+    // Prefer stable aliases first (model names change over time)
+    "gemini-2.5-flash", // ❌
+    "gemini-3.5-flash", // ❌
+    "gemini-3.1-flash-lite", // ❌
+    "gemini-2.5-flash-lite", // ✅
+    "gemini-2.5-flash-latest",
+    "gemini-2.0-flash",
+    "gemini-1.5-flash-latest",
+    "gemini-1.5-flash",
+    "gemini-pro", // legacy fallback (some keys only have older models)
+  ],
 
     // 5. روابط الأسماء العامة الثابتة (شاملة الـ Thinking)
     "gemini-flash-latest", // ❌
@@ -48,7 +55,7 @@ export const CONFIG = {
 
   // AI Generation Settings
   AI_SETTINGS: {
-    TEMPERATURE: 0.7,
+    TEMPERATURE: 0.5,
     MAX_OUTPUT_TOKENS: 32768,
   },
 };

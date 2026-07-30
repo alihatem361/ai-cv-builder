@@ -3,48 +3,58 @@
  */
 
 /**
- * Main prompt for CV customization and cover letter generation
+ * Main prompt for CV customization and cover letter generation.
+ * Enforces strict truth-based ATS optimization — no hallucinations allowed.
  * @param {string} masterCV - The master CV HTML content
  * @param {string} jobDescription - The job description text
  * @returns {string} The complete prompt
  */
 export function getMainPrompt(masterCV, jobDescription) {
-  return `You are an expert career consultant and professional resume writer. Your task is to customize a CV and create a cover letter based on a job description.
+  return `You are an expert ATS Resume Optimizer and Professional Recruiter.
+Your task is to tailor the candidate's Master CV to perfectly match the provided Job Description.
 
-## IMPORTANT INSTRUCTIONS:
-1. Analyze the job description to extract:
-   - Company name
-   - Job position/title
-   - Key requirements and skills
-   - Keywords that would help pass ATS (Applicant Tracking System)
+=========================================
+CRITICAL DIRECTIVES
+=========================================
 
-2. Customize the CV by:
-   - Rewriting the professional summary to highlight relevant experience for THIS specific job
-   - Reordering and emphasizing skills that match the job requirements
-   - Adjusting experience descriptions to emphasize relevant achievements
-   - Adding relevant keywords from the job description naturally
-   - KEEP the exact same HTML structure and Tailwind CSS classes - only modify the TEXT content
+1. ZERO HALLUCINATION (STRICT TRUTH):
+   - You MUST NEVER invent, assume, or add skills, tools, metrics, projects, or responsibilities not explicitly present in the Master CV.
+   - MAKE the title suitable for the job title and upgrade seniority if applicable (e.g., do not add "Senior").
+   - DO NOT invent years of experience. The candidate graduated in 2023; experience is roughly 2 years. Do not write "5+ years".
+   - DO NOT invent dates of employment. Use the original dates from the Master CV without modification.
 
-3. Write a professional cover letter that:
-   - Is addressed to the hiring team/manager at the company
-   - Highlights why the candidate is a perfect fit
-   - References specific requirements from the job description
-   - Is concise (3-4 paragraphs maximum)
-   - Has a professional but personable tone
-   - MUST end with this exact signature block (NO extra blank lines between contact details):
+2. CONDENSE & REFORMAT:
+   - Professional Summary: Write a strict 2-line summary highlighting core frontend expertise matching the job description. No generic objectives.
+   - Experience: Write a single continuous text block (paragraph) of MAXIMUM 2 LINES summarizing the role and achievements. DO NOT use bullet points or lists.
+   - Projects: You MUST keep the Live/Demo URL for each project. Format each strictly as: 
+     BOLD [Project Name] | UNDERLINE & BOLD [Live/Demo URL] 
+     [One single sentence describing the achievement] | BOLD Tech: [Comma-separated stack].
+   - Skills (DOT-SEPARATED LINE): DO NOT categorize skills. Output all relevant skills as a single continuous line separated by bullet points ( • ). Example: Next.js • React • TypeScript • Tailwind CSS • Figma.
+   - Sections to REMOVE: Delete "Volunteering", and "Awards" entirely unless explicitly demanded by the job description.
+
+3. HTML & STYLING RULES:
+   - Output MUST be valid HTML.
+   - Preserve ALL original Tailwind CSS classes and HTML structure. Only modify the text content.
+   - Use compact Tailwind classes if necessary to ensure the entire layout fits perfectly on a single A4 page.
+
+4. COVER LETTER (ENGLISH & ARABIC):
+   - Keep it concise (3 paragraphs max), persuasive, and strictly factual based on the Master CV.
+   - Address the specific needs of the job description.
+   - The Arabic version must be a professional translation of the English one.
+   - BOTH letters MUST end with this exact signature block (no extra line breaks):
 
 Sincerely,
 
 Ali Hatem Ramadan
 Phone: +201026159353
+WhatsApp: https://wa.me/201026159353
 LinkedIn: https://www.linkedin.com/in/aliihatem-753025203/
 Portfolio: https://www.alihatem.me
 GitHub: https://github.com/alihatem361
 
-4. Write an Arabic version of the cover letter that:
-   - Has the same content as the English cover letter but translated to Arabic
-   - Uses professional Arabic language
-   - MUST end with the same signature block (in English, NO extra blank lines between contact details)
+=========================================
+INPUT DATA
+=========================================
 
 ## MASTER CV (HTML):
 \`\`\`html
@@ -56,23 +66,17 @@ ${masterCV}
 ${jobDescription}
 \`\`\`
 
-## RESPONSE FORMAT:
-You MUST respond with a valid JSON object in this exact format:
+=========================================
+OUTPUT FORMAT (JSON ONLY)
+=========================================
+Respond strictly with a valid JSON object matching this structure. Escape all strings properly.
 {
-  "companyName": "The company name extracted from job description",
-  "jobPosition": "The job title/position extracted from job description",
-  "customizedCV": "The complete HTML of the customized CV (preserve all HTML/Tailwind styling)",
-  "coverLetter": "The complete cover letter text in English",
-  "coverLetterArabic": "The complete cover letter text in Arabic"
-}
-
-CRITICAL RULES:
-- The customizedCV must be valid HTML that preserves ALL original Tailwind CSS classes and structure
-- Only modify TEXT content, never remove or change HTML tags or CSS classes
-- The JSON must be valid and parseable
-- Do not include any text outside the JSON object
-- Escape any special characters in strings properly for valid JSON
-- Both cover letters must include the full signature block with contact details`;
+  "companyName": "Extracted from JD",
+  "jobPosition": "Extracted from JD",
+  "customizedCV": "Complete modified HTML string",
+  "coverLetter": "Complete English cover letter text",
+  "coverLetterArabic": "Complete Arabic cover letter text"
+}`;
 }
 
 /**
