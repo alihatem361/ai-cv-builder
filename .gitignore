@@ -20,7 +20,9 @@ Thumbs.db
 .vscode/
 .idea/
 
-/MASTERS/PDF
+MASTERS/
+
+CLAUDE.md
 
 # Logs
 *.log
