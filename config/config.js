@@ -20,26 +20,18 @@ export const CONFIG = {
     "gemini-1.5-flash-latest",
     "gemini-1.5-flash",
     "gemini-pro", // legacy fallback (some keys only have older models)
-  ],
 
-    // 5. روابط الأسماء العامة الثابتة (شاملة الـ Thinking)
+    // روابط الأسماء العامة الثابتة (شاملة الـ Thinking)
     "gemini-flash-latest", // ❌
     "gemini-pro-latest", // ❌
     "gemini-flash-lite-latest", // 🥲
 
-    // 3. نماذج الجيل 2.5 المستقرة والقوية جداً في الصياغة والتحليل
+    // نماذج الجيل 2.5 المستقرة والقوية جداً في الصياغة والتحليل
     "gemini-2.5-pro", // ❌
-    "gemini-2.5-flash", // ❌
 
-    // 4. النماذج الخفيفة والسريعة كحلول بديلة مضمونة (Fallbacks)
+    // النماذج الخفيفة والسريعة كحلول بديلة مضمونة (Fallbacks)
     "gemini-3.1-flash-lite-preview", // ❌
-    "gemini-2.5-flash-lite", // ❌
-    "gemini-2.0-flash", // ❌
     "gemini-2.0-flash-lite", // ❌
-    "gemini-3.1-flash-lite", // 🥲
-
-    // 1. القمة: أحدث نموذج فلاش مستقر ويدعم التفكير العميق (Thinking: true)
-    "gemini-3.5-flash",
   ],
   // File Paths
   PATHS: {
