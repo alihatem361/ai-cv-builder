@@ -38,14 +38,16 @@ export async function generatePDF(htmlFilePath, pdfFilePath, options = {}) {
     const fileUrl = `file:///${htmlFilePath.replace(/\\/g, "/")}`;
 
     console.log("   📄 Loading HTML file...");
-    // Wait for network to be idle (ensures Tailwind CSS is fully loaded)
+    // Two idle connections are enough for this file-based document and its CDN assets.
+    // networkidle0 can wait unnecessarily long for third-party requests to settle.
     await page.goto(fileUrl, {
-      waitUntil: "networkidle0",
+      waitUntil: "networkidle2",
       timeout: 30000,
     });
 
-    // Emulate print media to activate Tailwind's print: modifiers
+    // Emulate print media to activate Tailwind's print: modifiers, then wait for web fonts.
     await page.emulateMediaType("print");
+    await page.evaluate(() => document.fonts.ready.then(() => true));
 
     console.log("   🖨️ Generating PDF...");
     await page.pdf(pdfOptions);

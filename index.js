@@ -15,15 +15,19 @@ import { generatePDF, generatePDFFileName } from "./src/utils/pdfGenerator.js";
 async function main() {
   console.log("\n🚀 AI-Powered CV Generator Started\n");
   console.log("=".repeat(50));
+  const runStartedAt = Date.now();
 
   try {
     // Step 1: Validate configuration
     console.log("\n📋 Step 1: Validating configuration...");
+    let stepStartedAt = Date.now();
     validateConfig();
     console.log("   ✅ Configuration valid");
+    console.log(`   ⏱️ Validation: ${((Date.now() - stepStartedAt) / 1000).toFixed(1)}s`);
 
     // Step 2: Read input files
     console.log("\n📂 Step 2: Reading input files...");
+    stepStartedAt = Date.now();
 
     const masterCV = await readFile(CONFIG.PATHS.MASTER_CV);
     console.log(`   ✅ Loaded master CV (${masterCV.length} characters)`);
@@ -32,17 +36,21 @@ async function main() {
     console.log(
       `   ✅ Loaded job description (${jobDescription.length} characters)`
     );
+    console.log(`   ⏱️ Input loading: ${((Date.now() - stepStartedAt) / 1000).toFixed(1)}s`);
 
     // Step 3: Generate customized content using AI
     console.log("\n🤖 Step 3: Generating customized content...");
+    stepStartedAt = Date.now();
     const prompt = getMainPrompt(masterCV, jobDescription);
     const result = await generateCustomizedCV(prompt);
 
+    console.log(`   ⏱️ AI generation: ${((Date.now() - stepStartedAt) / 1000).toFixed(1)}s`);
     console.log(`   ✅ Company detected: ${result.companyName}`);
     console.log(`   ✅ Position detected: ${result.jobPosition}`);
 
     // Step 4: Create output folder and save files
     console.log("\n💾 Step 4: Saving generated files...");
+    stepStartedAt = Date.now();
 
     const folderName = generateFolderName(
       result.companyName,
@@ -64,6 +72,7 @@ async function main() {
       folderName,
       files
     );
+    console.log(`   ⏱️ File saving: ${((Date.now() - stepStartedAt) / 1000).toFixed(1)}s`);
 
     // Step 5: Generate PDF from HTML
     console.log("\n📑 Step 5: Generating PDF (Text-based)...");
@@ -74,7 +83,9 @@ async function main() {
     );
     const pdfFilePath = path.resolve(outputPath, pdfFileName);
 
+    stepStartedAt = Date.now();
     await generatePDF(htmlFilePath, pdfFilePath);
+    console.log(`   ⏱️ PDF generation: ${((Date.now() - stepStartedAt) / 1000).toFixed(1)}s`);
 
     // Success message
     console.log("\n" + "=".repeat(50));
@@ -84,12 +95,14 @@ async function main() {
     console.log(`📄 CV (PDF): ${pdfFileName} ✨ Selectable Text!`);
     console.log(`📝 Cover Letter (EN): Cover-Letter.txt`);
     console.log(`📝 Cover Letter (AR): Cover-Letter-Arabic.txt`);
+    console.log(`⏱️ Total elapsed time: ${((Date.now() - runStartedAt) / 1000).toFixed(1)}s`);
     console.log("\n🎯 Next steps:");
     console.log("   1. Use the PDF file for job applications");
     console.log("   2. Copy the cover letter for your application");
     console.log("\n");
   } catch (error) {
     console.error("\n❌ Error:", error.message);
+    console.error(`⏱️ Failed after ${((Date.now() - runStartedAt) / 1000).toFixed(1)}s`);
 
     if (error.message.includes("File not found")) {
       console.log("\n💡 Tip: Make sure you have created the input files:");
