@@ -9,29 +9,14 @@ export const CONFIG = {
 
   // 🔥 التعديل هنا: قائمة الموديلات بالترتيب بدلاً من موديل واحد
   // الكود هيجرب الأول، ولو فشل يدخل على الثاني وهكذا
+  // Prefer currently documented stable models, with a short fallback chain.
+  // Keep this list short: sequential 404s on retired model IDs add avoidable delay.
   GEMINI_MODELS_PRIORITY: [
-    // Prefer stable aliases first (model names change over time)
-    "gemini-2.5-flash", // ❌
-    "gemini-3.5-flash", // ❌
-    "gemini-3.1-flash-lite", // ❌
-    "gemini-2.5-flash-lite", // ✅
-    "gemini-2.5-flash-latest",
-    "gemini-2.0-flash",
-    "gemini-1.5-flash-latest",
-    "gemini-1.5-flash",
-    "gemini-pro", // legacy fallback (some keys only have older models)
-
-    // روابط الأسماء العامة الثابتة (شاملة الـ Thinking)
-    "gemini-flash-latest", // ❌
-    "gemini-pro-latest", // ❌
-    "gemini-flash-lite-latest", // 🥲
-
-    // نماذج الجيل 2.5 المستقرة والقوية جداً في الصياغة والتحليل
-    "gemini-2.5-pro", // ❌
-
-    // النماذج الخفيفة والسريعة كحلول بديلة مضمونة (Fallbacks)
-    "gemini-3.1-flash-lite-preview", // ❌
-    "gemini-2.0-flash-lite", // ❌
+    "gemini-3.5-flash-lite", // Fast, cost-efficient default for routine generation
+    "gemini-3.8-flash",      // Higher-capability fallback
+    "gemini-3.1-flash-lite",
+    "gemini-2.5-flash-lite", // Legacy fallback for keys with existing access
+    "gemini-2.5-flash",
   ],
   // File Paths
   PATHS: {
